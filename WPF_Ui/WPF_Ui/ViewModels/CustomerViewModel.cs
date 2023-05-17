@@ -2,19 +2,27 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Common.Interfaces;
+using WPF_UI.Views.Windows;
 
 namespace WPF_Ui.ViewModels
 {
     public class CustomerViewModel : ObservableObject, INavigationAware
     {
         private bool _isInitialized = false;
+        public ICommand DeleteCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+
+        public CustomerViewModel()
+        {
+            this.DeleteCommand = new RelayCommand(OnDelete);
+            this.EditCommand = new RelayCommand(OnEdit);
+        }
+
         public void OnNavigatedTo()
         {
             if (!_isInitialized)
             {
                 InitializeViewModel();
-                this.Delete = new RelayCommand(OnDelete);
-                this.Edit = new RelayCommand(OnEdit);
             }
         }
 
@@ -28,18 +36,17 @@ namespace WPF_Ui.ViewModels
             _isInitialized = true;
         }
 
-        public ICommand Delete { get; set; }
-        public ICommand Edit { get; set; }
-
         private void OnDelete()
         {
 
         }
 
-        private void OnEdit()
+        public void OnEdit()
         {
-
+            CustomerEditWindow customerEditWindow = new CustomerEditWindow();
+            customerEditWindow.Show();
         }
+
 
     }
 }

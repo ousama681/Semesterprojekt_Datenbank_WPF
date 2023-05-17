@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:WPF_Ui.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:viewModels="clr-namespace:WPF_Ui.ViewModels"
     Title="CustomerPage"
     d:DataContext="{d:DesignInstance local:CustomerPage,
                                      IsDesignTimeCreatable=False}"
@@ -28,7 +29,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <ui:AutoSuggestBox Grid.Column="0" TextWrapping="Wrap" Text="Search" Height="35" Width="180" Margin="10"/>
-                <ui:Button Grid.Column="1" Content="Edit" Height="35" Width="83" Margin="10" />
+                <ui:Button Grid.Column="1" Command="{Binding ViewModel.EditCommand}" Content="Edit" Height="35" Width="83" Margin="10" />
                 <ui:Button HorizontalAlignment="Right" Grid.Column="2" Content="Delete" Height="35" Width="83" Margin="10"/>
             </Grid>
         </ui:ClientAreaBorder>
