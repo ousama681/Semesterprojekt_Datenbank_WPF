@@ -4,20 +4,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Common.Interfaces;
 
-namespace WPF_UI.ViewModels
+namespace WPF_Ui.ViewModels
 {
-    public class CustomerEditViewModel : ObservableObject
+    public partial class CustomerEditViewModel : ObservableObject, INavigationAware
     {
-        private bool _isInitialised = false;
+        private bool _isInitialized = false;
+        public ICommand EditCommand { get; set; }
+
         public CustomerEditViewModel()
         {
-            if(!_isInitialised)
+            if(!_isInitialized)
                 InitialiseViewModel();
         }
 
         private void InitialiseViewModel()
+        {
+
+        }
+
+        public void OnNavigatedTo()
+        {
+            if (!_isInitialized)
+            {
+                InitializeViewModel();
+            }
+        }
+
+        private void InitializeViewModel()
+        {
+            _isInitialized = true;
+        }
+
+        public void OnNavigatedFrom()
+        {
+            
+        }
+
+
+        [RelayCommand]
+        private void OnEditClick()
         {
 
         }

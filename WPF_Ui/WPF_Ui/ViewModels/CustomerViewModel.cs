@@ -1,8 +1,13 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using System.Windows;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows.Input;
-using CommunityToolkit.Mvvm.Input;
+using Wpf.Ui.Common;
 using Wpf.Ui.Common.Interfaces;
+using Wpf.Ui.Controls;
+using WPF_Ui.Views.Windows;
 using WPF_UI.Views.Windows;
+using RelayCommand = CommunityToolkit.Mvvm.Input.RelayCommand;
 
 namespace WPF_Ui.ViewModels
 {
@@ -11,6 +16,8 @@ namespace WPF_Ui.ViewModels
         private bool _isInitialized = false;
         public ICommand DeleteCommand { get; set; }
         public ICommand EditCommand { get; set; }
+
+        MainWindow mainWindow = MainWindow.GetWindow(App.Current.MainWindow) as MainWindow;
 
         public CustomerViewModel()
         {
@@ -43,8 +50,12 @@ namespace WPF_Ui.ViewModels
 
         public void OnEdit()
         {
-            CustomerEditWindow customerEditWindow = new CustomerEditWindow();
-            customerEditWindow.Show();
+            //CustomerEditWindow customerEditWindow = new CustomerEditWindow();
+            //customerEditWindow.Show();
+
+            ((NavigationItem)mainWindow.GetNavigation().Items[4]).Visibility = Visibility.Hidden;
+
+            mainWindow.RootNavigation.Navigate(4);
         }
 
 

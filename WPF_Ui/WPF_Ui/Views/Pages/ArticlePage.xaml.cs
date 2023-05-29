@@ -1,0 +1,19 @@
+﻿using Wpf.Ui.Common.Interfaces;
+using WPF_Ui.ViewModels;
+
+namespace WPF_Ui.Views.Pages
+{
+    /// <summary>
+    /// Interaction logic for ArticlePage.xaml
+    /// </summary>
+    public partial class ArticlePage : INavigableView<ViewModels.ArticleViewModel>
+    {
+        public ArticleViewModel ViewModel { get; }
+
+        public ArticlePage(ArticleViewModel viewModel)
+        {
+            ViewModel = viewModel;
+            InitializeComponent();
+        }
+    }
+}

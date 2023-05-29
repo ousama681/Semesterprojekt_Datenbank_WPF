@@ -24,6 +24,14 @@ namespace WPF_Ui.ViewModels
         [ObservableProperty]
         private ObservableCollection<MenuItem> _trayMenuItems = new();
 
+        [ObservableProperty]
+        private ObservableCollection<INavigationControl> _OurNavigationItems = new();
+
+        public ObservableCollection<INavigationControl> GetOurNavigation()
+        {
+            return OurNavigationItems;
+        }
+
         public MainWindowViewModel(INavigationService navigationService)
         {
             if (!_isInitialized)
@@ -33,6 +41,16 @@ namespace WPF_Ui.ViewModels
         private void InitializeViewModel()
         {
             ApplicationTitle = "Auftragsverwaltung";
+
+            OurNavigationItems = new ObservableCollection<INavigationControl>
+            {
+                new NavigationItem()
+                {
+                    Content = "CustomerEdit",
+                    PageTag = "CustomerEdit",
+                    PageType = typeof(Views.Pages.CustomerEditPage)
+                }
+            };
 
             NavigationItems = new ObservableCollection<INavigationControl>
             {
@@ -56,6 +74,20 @@ namespace WPF_Ui.ViewModels
                     PageTag = "customer",
                     Icon = SymbolRegular.DataHistogram24,
                     PageType = typeof(Views.Pages.CustomerPage)
+                },
+                new NavigationItem()
+                {
+                Content = "Article",
+                PageTag = "article",
+                Icon = SymbolRegular.DataHistogram24,
+                PageType = typeof(Views.Pages.ArticlePage)
+                },
+                new NavigationItem()
+                {
+                    Content = "CustomerEdit",
+                    PageTag = "CustomerEdit",
+                    Icon = SymbolRegular.DataHistogram24,
+                    PageType = typeof(Views.Pages.CustomerEditPage)
                 }
 
             };
@@ -70,6 +102,8 @@ namespace WPF_Ui.ViewModels
                     PageType = typeof(Views.Pages.SettingsPage)
                 }
             };
+
+            this.
 
             TrayMenuItems = new ObservableCollection<MenuItem>
             {

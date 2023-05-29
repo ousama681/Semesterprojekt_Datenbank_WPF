@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 using WPF_Ui.Models;
@@ -58,6 +59,10 @@ namespace WPF_Ui
                 services.AddScoped<ViewModels.SettingsViewModel>();
                 services.AddScoped<Views.Pages.CustomerPage>();
                 services.AddScoped<ViewModels.CustomerViewModel>();
+                services.AddScoped<Views.Pages.CustomerEditPage>();
+                services.AddScoped<ViewModels.CustomerEditViewModel>();
+                services.AddScoped<Views.Pages.ArticlePage>();
+                services.AddScoped<ViewModels.ArticleViewModel>();
 
                 // Configuration
                 services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
