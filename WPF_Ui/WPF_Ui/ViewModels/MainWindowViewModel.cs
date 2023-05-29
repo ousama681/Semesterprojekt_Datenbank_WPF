@@ -24,14 +24,6 @@ namespace WPF_Ui.ViewModels
         [ObservableProperty]
         private ObservableCollection<MenuItem> _trayMenuItems = new();
 
-        [ObservableProperty]
-        private ObservableCollection<INavigationControl> _OurNavigationItems = new();
-
-        public ObservableCollection<INavigationControl> GetOurNavigation()
-        {
-            return OurNavigationItems;
-        }
-
         public MainWindowViewModel(INavigationService navigationService)
         {
             if (!_isInitialized)
@@ -41,16 +33,6 @@ namespace WPF_Ui.ViewModels
         private void InitializeViewModel()
         {
             ApplicationTitle = "Auftragsverwaltung";
-
-            OurNavigationItems = new ObservableCollection<INavigationControl>
-            {
-                new NavigationItem()
-                {
-                    Content = "CustomerEdit",
-                    PageTag = "CustomerEdit",
-                    PageType = typeof(Views.Pages.CustomerEditPage)
-                }
-            };
 
             NavigationItems = new ObservableCollection<INavigationControl>
             {
