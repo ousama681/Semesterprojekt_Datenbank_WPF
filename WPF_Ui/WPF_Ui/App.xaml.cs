@@ -47,9 +47,6 @@ namespace WPF_Ui
                 services.AddScoped<INavigationWindow, Views.Windows.MainWindow>();
                 services.AddScoped<ViewModels.MainWindowViewModel>();
 
-                // Pop up Windows and ViewModels
-                services.AddScoped<Views.Windows.CustomerEditWindow>();
-
                 // Views and ViewModels
                 services.AddScoped<Views.Pages.DashboardPage>();
                 services.AddScoped<ViewModels.DashboardViewModel>();

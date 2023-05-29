@@ -6,7 +6,6 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Common.Interfaces;
 using Wpf.Ui.Controls;
 using WPF_Ui.Views.Windows;
-using WPF_UI.Views.Windows;
 using RelayCommand = CommunityToolkit.Mvvm.Input.RelayCommand;
 
 namespace WPF_Ui.ViewModels
