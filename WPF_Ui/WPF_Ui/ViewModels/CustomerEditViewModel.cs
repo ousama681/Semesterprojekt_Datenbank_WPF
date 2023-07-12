@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Common.Interfaces;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace WPF_Ui.ViewModels
 {

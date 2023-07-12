@@ -64,14 +64,6 @@ namespace WPF_Ui.ViewModels
                 Icon = SymbolRegular.DataHistogram24,
                 PageType = typeof(Views.Pages.ArticlePage)
                 },
-                new NavigationItem()
-                {
-                    Content = "CustomerEdit",
-                    PageTag = "CustomerEdit",
-                    Icon = SymbolRegular.DataHistogram24,
-                    PageType = typeof(Views.Pages.CustomerEditPage)
-                }
-
             };
 
             NavigationFooter = new ObservableCollection<INavigationControl>

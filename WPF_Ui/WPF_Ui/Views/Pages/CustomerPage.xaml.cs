@@ -1,4 +1,6 @@
 ﻿using Wpf.Ui.Common.Interfaces;
+using Wpf.Ui.Mvvm.Contracts;
+using WPF_Ui.Views.Windows;
 
 namespace WPF_Ui.Views.Pages
 {
@@ -16,7 +18,7 @@ namespace WPF_Ui.Views.Pages
         {
             ViewModel = viewModel;
             InitializeComponent();
-        }
 
+        }
     }
 }

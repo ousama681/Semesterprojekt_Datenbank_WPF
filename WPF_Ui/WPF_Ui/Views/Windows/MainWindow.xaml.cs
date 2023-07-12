@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Automation.Provider;
 using System.Windows.Controls;
+using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 using WPF_Ui.ViewModels;
@@ -27,7 +28,6 @@ namespace WPF_Ui.Views.Windows
 
             InitializeComponent();
             SetPageService(pageService);
-
             navigationService.SetNavigationControl(RootNavigation);
         }
 
