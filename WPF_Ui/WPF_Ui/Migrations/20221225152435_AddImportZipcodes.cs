@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System.Configuration;
 using System.Data;
 using System.IO;
+using WPF_Ui.Services.Data;
 
 #nullable disable
 

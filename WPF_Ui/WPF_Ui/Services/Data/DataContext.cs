@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Configuration;
-using WPF_Ui.EntityConfiguration;
+using WPF_Ui.Services.Data.EntityConfiguration;
 using WPF_Ui.Models;
 
-namespace WPF_Ui
+namespace WPF_Ui.Services.Data
 {
     public class DataContext : DbContext
     {

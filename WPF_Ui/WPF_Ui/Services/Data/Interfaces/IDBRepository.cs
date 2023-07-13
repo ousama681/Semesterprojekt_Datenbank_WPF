@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WPF_Ui.Interfaces
+namespace WPF_Ui.Services.Data.Interfaces
 {
     public interface IDBUtility<T>
     {

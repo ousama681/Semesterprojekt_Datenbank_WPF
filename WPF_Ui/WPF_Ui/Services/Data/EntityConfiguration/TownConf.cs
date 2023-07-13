@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WPF_Ui.Interfaces;
 using WPF_Ui.Models;
+using WPF_Ui.Services.Data.Interfaces;
 
-namespace WPF_Ui.EntityConfiguration
+namespace WPF_Ui.Services.Data.EntityConfiguration
 {
     public class TownConf : IEntityConfiguration
     {

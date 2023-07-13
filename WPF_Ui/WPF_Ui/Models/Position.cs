@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using WPF_Ui.Services.Data;
 
 namespace WPF_Ui.Models
 {
