@@ -59,7 +59,7 @@ namespace WPF_Ui.ViewModels
                 },
                 new NavigationItem()
                 {
-                    Content = "Article Groups",
+                    Content = "Articlegroups",
                     PageTag = "articleGroup",
                     Icon = SymbolRegular.DocumentBulletList24,
                     PageType = typeof(WPF_Ui.Views.Pages.ArticleGroup.ArticleGroupPage)
