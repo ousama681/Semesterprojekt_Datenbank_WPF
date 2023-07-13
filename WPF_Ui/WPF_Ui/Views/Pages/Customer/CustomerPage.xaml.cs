@@ -1,7 +1,4 @@
 ﻿using Wpf.Ui.Common.Interfaces;
-using Wpf.Ui.Mvvm.Contracts;
-using WPF_Ui.Views.Windows;
-using WPF_Ui.Views.Pages;
 using WPF_Ui.ViewModels.Customer;
 
 namespace WPF_Ui.Views.Pages.Customer

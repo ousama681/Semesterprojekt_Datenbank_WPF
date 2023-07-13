@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using WPF_Ui.Models;
+﻿using System.Collections.Generic;
 
 namespace WPF_Ui.Models
 {

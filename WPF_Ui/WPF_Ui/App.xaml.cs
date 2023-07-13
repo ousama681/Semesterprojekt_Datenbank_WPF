@@ -5,13 +5,10 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 using WPF_Ui.Models;
 using WPF_Ui.Services;
-using WPF_Ui.ViewModels.Customer;
-using WPF_Ui.ViewModels.Article;
 
 namespace WPF_Ui
 {
@@ -66,6 +63,8 @@ namespace WPF_Ui
                 services.AddScoped<WPF_Ui.ViewModels.Article.ArticleViewModel>();
                 services.AddScoped<WPF_Ui.Views.Pages.ArticleGroup.ArticleGroupPage>();
                 services.AddScoped<WPF_Ui.ViewModels.ArticleGroup.ArticleGroupViewModel>();
+                services.AddScoped<WPF_Ui.Views.Pages.Invoice.InvoicePage>();
+                services.AddScoped<WPF_Ui.ViewModels.Invoice.InvoiceViewModel>();
 
                 // Configuration
                 services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

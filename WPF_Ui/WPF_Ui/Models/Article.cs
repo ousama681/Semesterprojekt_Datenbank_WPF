@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WPF_Ui.Models;
 
 namespace WPF_Ui.Models
 {
@@ -22,7 +18,7 @@ namespace WPF_Ui.Models
         public DateTime DateTime { get; set; }
 
         public virtual ICollection<Position> Positions { get; set; }
-        
+
         public Article(string name, int nr, decimal price, int articleGroupId, int mwstid, DateTime dateTime)
         {
             Name = name;

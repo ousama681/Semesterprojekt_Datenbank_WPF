@@ -1,15 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Windows;
-using Wpf.Ui.Common.Interfaces;
-using WPF_Ui.Views.Pages.Customer;
-using WPF_Ui.Views.Windows;
 using CommunityToolkit.Mvvm.Input;
+using System.Windows;
+using System.Windows.Input;
+using Wpf.Ui.Common.Interfaces;
+using WPF_Ui.Views.Windows;
 
 namespace WPF_Ui.ViewModels.ArticleGroup
 {

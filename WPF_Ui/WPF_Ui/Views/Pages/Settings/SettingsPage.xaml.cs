@@ -1,5 +1,4 @@
 ﻿using Wpf.Ui.Common.Interfaces;
-using WPF_Ui.Views.Pages;
 
 namespace WPF_Ui.Views.Pages.Settings
 {

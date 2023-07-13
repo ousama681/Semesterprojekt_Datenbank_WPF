@@ -1,5 +1,4 @@
-﻿using System.Security.RightsManagement;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 

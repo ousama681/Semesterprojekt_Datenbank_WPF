@@ -1,14 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
+using System.Windows.Input;
 using Wpf.Ui.Common.Interfaces;
-using Microsoft.EntityFrameworkCore.Metadata;
-using WPF_Ui.ViewModels;
 
 namespace WPF_Ui.ViewModels.Customer
 {
@@ -19,7 +12,7 @@ namespace WPF_Ui.ViewModels.Customer
 
         public CustomerEditViewModel()
         {
-            if(!_isInitialized)
+            if (!_isInitialized)
                 InitialiseViewModel();
         }
 
@@ -43,7 +36,7 @@ namespace WPF_Ui.ViewModels.Customer
 
         public void OnNavigatedFrom()
         {
-            
+
         }
 
 

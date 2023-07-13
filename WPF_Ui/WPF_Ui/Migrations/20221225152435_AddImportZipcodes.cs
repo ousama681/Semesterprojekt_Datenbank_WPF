@@ -1,9 +1,8 @@
-﻿using System.Configuration;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.Configuration;
 using System.Data;
 using System.IO;
-using WPF_Ui;
 
 #nullable disable
 

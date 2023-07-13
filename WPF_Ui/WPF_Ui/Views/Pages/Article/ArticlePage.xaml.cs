@@ -1,6 +1,5 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using WPF_Ui.ViewModels.Article;
-using WPF_Ui.Views.Pages;
 
 namespace WPF_Ui.Views.Pages.Article
 {

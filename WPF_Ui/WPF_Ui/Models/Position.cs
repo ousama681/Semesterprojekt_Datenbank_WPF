@@ -1,6 +1,4 @@
 ﻿using System.Linq;
-using WPF_Ui;
-using WPF_Ui.Models;
 
 namespace WPF_Ui.Models
 {
@@ -41,11 +39,11 @@ namespace WPF_Ui.Models
             using (var context = new DataContext())
             {
                 posArticleName = (from p in context.Position
-                    where p.ArticleId == pos.ArticleId && p.OrderId == pos.OrderId
-                    select p.Article.Name).SingleOrDefault();
+                                  where p.ArticleId == pos.ArticleId && p.OrderId == pos.OrderId
+                                  select p.Article.Name).SingleOrDefault();
                 thisArticleName = (from p in context.Position
-                    where p.ArticleId == pos.ArticleId && p.OrderId == pos.OrderId
-                    select p.Article.Name).SingleOrDefault();
+                                   where p.ArticleId == pos.ArticleId && p.OrderId == pos.OrderId
+                                   select p.Article.Name).SingleOrDefault();
             }
 
             if (posArticleName == null && thisArticleName == null)

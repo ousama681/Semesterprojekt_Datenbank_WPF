@@ -1,15 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
 using System.Configuration;
 using WPF_Ui.EntityConfiguration;
 using WPF_Ui.Models;
@@ -19,13 +9,13 @@ namespace WPF_Ui
     public class DataContext : DbContext
     {
         public DbSet<ArticleGroup> ArticleGroup { get; set; }
-        public DbSet<Article> Article {get;set;}
-        public DbSet<Customer> Customer {get;set;}
-        public DbSet<Invoice> Invoice {get;set;}
-        public DbSet<Town> Town {get;set;}
-        public DbSet<Order> Order {get;set;}
-        public DbSet<Position> Position {get;set;}
-        public DbSet<MWST> MWST {get;set;}
+        public DbSet<Article> Article { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Invoice> Invoice { get; set; }
+        public DbSet<Town> Town { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Position> Position { get; set; }
+        public DbSet<MWST> MWST { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

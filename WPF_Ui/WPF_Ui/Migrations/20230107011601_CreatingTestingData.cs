@@ -1,8 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System.Data;
-using System.IO;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 

@@ -56,10 +56,10 @@ namespace WPF_Ui.ViewModels
                     PageTag = "article",
                     Icon = SymbolRegular.Document48,
                     PageType = typeof(WPF_Ui.Views.Pages.Article.ArticlePage)
-                },               
+                },
                 new NavigationItem()
                 {
-                    Content = "Article Group",
+                    Content = "Article Groups",
                     PageTag = "articleGroup",
                     Icon = SymbolRegular.DocumentBulletList24,
                     PageType = typeof(WPF_Ui.Views.Pages.ArticleGroup.ArticleGroupPage)
@@ -76,7 +76,7 @@ namespace WPF_Ui.ViewModels
                     Content = "Invoices",
                     PageTag = "invoice",
                     Icon = SymbolRegular.ContactCardLink16,
-                    PageType = typeof(WPF_Ui.Views.Pages.Customer.CustomerPage)
+                    PageType = typeof(WPF_Ui.Views.Pages.Invoice.InvoicePage)
                 },
             };
 

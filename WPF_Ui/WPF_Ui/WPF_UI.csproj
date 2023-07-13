@@ -8,6 +8,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>applicationIcon.ico</ApplicationIcon>
+    <UserSecretsId>512c204a-1eb1-4f71-bea7-bc4d5fe2256e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,9 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\Invoice\" />
     <Folder Include="ViewModels\Order\" />
-    <Folder Include="Views\Pages\Invoice\" />
     <Folder Include="Views\Pages\Order\" />
   </ItemGroup>
 

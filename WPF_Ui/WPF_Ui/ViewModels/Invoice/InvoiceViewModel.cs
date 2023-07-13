@@ -1,14 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Windows;
 using System.Windows.Input;
 using Wpf.Ui.Common.Interfaces;
-using WPF_Ui.Views.Pages.Customer;
 using WPF_Ui.Views.Windows;
-using RelayCommand = CommunityToolkit.Mvvm.Input.RelayCommand;
 
-namespace WPF_Ui.ViewModels.Customer
+namespace WPF_Ui.ViewModels.Invoice
+
 {
-    public class CustomerViewModel : ObservableObject, INavigationAware
+    public class InvoiceViewModel : ObservableObject, INavigationAware
     {
         private bool _isInitialized = false;
         public ICommand DeleteCommand { get; set; }
@@ -17,7 +17,7 @@ namespace WPF_Ui.ViewModels.Customer
 
         MainWindow? mainWindow;
 
-        public CustomerViewModel()
+        public InvoiceViewModel()
         {
             DeleteCommand = new RelayCommand(OnDelete);
             EditCommand = new RelayCommand(OnEdit);
@@ -45,7 +45,7 @@ namespace WPF_Ui.ViewModels.Customer
 
         public void OnAdd()
         {
-            mainWindow?.RootNavigation.Navigate(typeof(CustomerAddPage));
+            //mainWindow?.RootNavigation.Navigate(typeof(CustomerAddPage));
         }
         private void OnDelete()
         {
@@ -54,7 +54,7 @@ namespace WPF_Ui.ViewModels.Customer
 
         public void OnEdit()
         {
-            mainWindow?.RootNavigation.Navigate(typeof(CustomerEditPage));
+            //mainWindow?.RootNavigation.Navigate(typeof(CustomerEditPage));
         }
     }
 }
