@@ -17,6 +17,7 @@ namespace WPF_Ui.Views.Pages.Customer
         {
             ViewModel = viewModel;
             InitializeComponent();
+            DataContext = this;
 
         }
     }

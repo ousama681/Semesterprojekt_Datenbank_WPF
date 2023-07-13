@@ -9,6 +9,9 @@ using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 using WPF_Ui.Models;
 using WPF_Ui.Services;
+using WPF_Ui.Services.Data;
+using WPF_Ui.Services.Data.Interfaces;
+using WPF_Ui.Services.Data.Repository;
 
 namespace WPF_Ui
 {
@@ -27,6 +30,19 @@ namespace WPF_Ui
             .ConfigureAppConfiguration(c => { c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)); })
             .ConfigureServices((context, services) =>
             {
+                //DB Context Configuration
+                services.AddDbContext<DataContext>();
+
+                //Repository configuration
+                services.AddScoped<ICustomerRepository, CustomerRepository>();
+                services.AddScoped<IArticleRepository, ArticleRepository>();
+                services.AddScoped<IArticleGroupRepository, ArticleGroupRepository>();
+                services.AddScoped<IOrderRepository, OrderRepository>();
+                services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+                services.AddScoped<IMWSTRepository, MWSTRepository>();
+                services.AddScoped<IPositionRepository, PositionRepository>();
+                services.AddScoped<ITownRepository, TownRepository>();
+
                 // App Host
                 services.AddHostedService<ApplicationHostService>();
 

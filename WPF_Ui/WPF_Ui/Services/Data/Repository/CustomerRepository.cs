@@ -1,37 +1,100 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WPF_Ui.Models;
 using WPF_Ui.Services.Data.Interfaces;
 
 namespace WPF_Ui.Services.Data.Repository
 {
-    internal class CustomerRepository : ICustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
-        public CustomerRepository() 
+        private readonly DataContext _context;
+        public CustomerRepository(DataContext context) 
         {
-
+            _context = context;
         }
-        public Task<bool> AddAsync(Customer item)
+        public async Task<bool> AddAsync(Customer item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if(item != null && _context != null)
+                {
+                    await _context.Customer.AddAsync(item);
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }           
         }
 
-        public Task<bool> DeleteAsync(Customer item)
+        public async Task<bool> DeleteAsync(Customer item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (item != null && _context != null)
+                {
+                    var result = await _context.Customer.FirstOrDefaultAsync(c => c.Id == item.Id);
+                    if (result != null)
+                    {
+                        _context.Customer.Remove(result);
+                        await _context.SaveChangesAsync();
+                        return true;
+                    }                   
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
-        public Task<List<Customer>> GetAllAsync()
+        public async Task<List<Customer>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (_context != null)
+                {
+                    var result = await _context.Customer.ToListAsync();
+                    await _context.SaveChangesAsync();
+                    return result;
+                }
+                return new List<Customer>();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<Customer>();
+            }
         }
 
-        public Task<Customer> GetAsync(Customer item)
+        public async Task<Customer> GetAsync(Customer item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (item != null && _context != null)
+                {
+                    var result = await _context.Customer.FirstOrDefaultAsync(c => c.Id == item.Id);
+                    if (result != null)
+                        return result;
+                }
+                return new Customer();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new Customer();
+            }
         }
 
         public Task<List<string>> GetFilteredAsync(List<string> item)
@@ -39,9 +102,20 @@ namespace WPF_Ui.Services.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Customer item)
+        public async Task UpdateAsync(Customer item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (item != null && _context != null)
+                {
+                    var result = _context.Customer.Update(item);
+                    await _context.SaveChangesAsync();                                           
+                }                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);                
+            }
         }
     }
 }
