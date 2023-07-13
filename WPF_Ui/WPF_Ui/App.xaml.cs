@@ -64,6 +64,8 @@ namespace WPF_Ui
                 services.AddScoped<WPF_Ui.ViewModels.Customer.CustomerAddViewModel>();
                 services.AddScoped<WPF_Ui.Views.Pages.Article.ArticlePage>();
                 services.AddScoped<WPF_Ui.ViewModels.Article.ArticleViewModel>();
+                services.AddScoped<WPF_Ui.Views.Pages.ArticleGroup.ArticleGroupPage>();
+                services.AddScoped<WPF_Ui.ViewModels.ArticleGroup.ArticleGroupViewModel>();
 
                 // Configuration
                 services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

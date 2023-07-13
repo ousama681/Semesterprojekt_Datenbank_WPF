@@ -38,31 +38,45 @@ namespace WPF_Ui.ViewModels
             {
                 new NavigationItem()
                 {
-                    Content = "Home",
+                    Content = "Dashboard",
                     PageTag = "dashboard",
                     Icon = SymbolRegular.Home24,
                     PageType = typeof(Views.Pages.DashboardPage)
                 },
                 new NavigationItem()
                 {
-                    Content = "Data",
-                    PageTag = "data",
-                    Icon = SymbolRegular.DataHistogram24,
-                    PageType = typeof(Views.Pages.DataPage)
-                },
-                new NavigationItem()
-                {
-                    Content = "Customer",
+                    Content = "Customers",
                     PageTag = "customer",
-                    Icon = SymbolRegular.DataHistogram24,
+                    Icon = SymbolRegular.ContactCard48,
                     PageType = typeof(WPF_Ui.Views.Pages.Customer.CustomerPage)
                 },
                 new NavigationItem()
                 {
-                Content = "Article",
-                PageTag = "article",
-                Icon = SymbolRegular.DataHistogram24,
-                PageType = typeof(WPF_Ui.Views.Pages.Article.ArticlePage)
+                    Content = "Articles",
+                    PageTag = "article",
+                    Icon = SymbolRegular.Document48,
+                    PageType = typeof(WPF_Ui.Views.Pages.Article.ArticlePage)
+                },               
+                new NavigationItem()
+                {
+                    Content = "Article Group",
+                    PageTag = "articleGroup",
+                    Icon = SymbolRegular.DocumentBulletList24,
+                    PageType = typeof(WPF_Ui.Views.Pages.ArticleGroup.ArticleGroupPage)
+                },
+                new NavigationItem()
+                {
+                    Content = "Orders",
+                    PageTag = "order",
+                    Icon = SymbolRegular.Album20,
+                    PageType = typeof(WPF_Ui.Views.Pages.Customer.CustomerPage)
+                },
+                new NavigationItem()
+                {
+                    Content = "Invoices",
+                    PageTag = "invoice",
+                    Icon = SymbolRegular.ContactCardLink16,
+                    PageType = typeof(WPF_Ui.Views.Pages.Customer.CustomerPage)
                 },
             };
 

@@ -1,19 +1,19 @@
-﻿using System;
-using System.Windows;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
-using Wpf.Ui.Common;
+using System.Windows;
 using Wpf.Ui.Common.Interfaces;
-using Wpf.Ui.Controls;
-using WPF_Ui.Views.Windows;
-using RelayCommand = CommunityToolkit.Mvvm.Input.RelayCommand;
-using Wpf.Ui.Mvvm.Contracts;
-using WPF_Ui.Views.Pages;
 using WPF_Ui.Views.Pages.Customer;
+using WPF_Ui.Views.Windows;
+using CommunityToolkit.Mvvm.Input;
 
-namespace WPF_Ui.ViewModels.Customer
+namespace WPF_Ui.ViewModels.ArticleGroup
 {
-    public class CustomerViewModel : ObservableObject, INavigationAware
+    public class ArticleGroupViewModel : ObservableObject, INavigationAware
     {
         private bool _isInitialized = false;
         public ICommand DeleteCommand { get; set; }
@@ -22,7 +22,7 @@ namespace WPF_Ui.ViewModels.Customer
 
         MainWindow? mainWindow;
 
-        public CustomerViewModel()
+        public ArticleGroupViewModel()
         {
             DeleteCommand = new RelayCommand(OnDelete);
             EditCommand = new RelayCommand(OnEdit);
@@ -49,8 +49,8 @@ namespace WPF_Ui.ViewModels.Customer
         }
 
         public void OnAdd()
-        {           
-            mainWindow?.RootNavigation.Navigate(typeof(CustomerAddPage));
+        {
+            //mainWindow?.RootNavigation.Navigate(typeof(CustomerAddPage));
         }
         private void OnDelete()
         {
@@ -58,8 +58,8 @@ namespace WPF_Ui.ViewModels.Customer
         }
 
         public void OnEdit()
-        {          
-            mainWindow?.RootNavigation.Navigate(typeof(CustomerEditPage));
+        {
+            //mainWindow?.RootNavigation.Navigate(typeof(CustomerEditPage));
         }
     }
 }
