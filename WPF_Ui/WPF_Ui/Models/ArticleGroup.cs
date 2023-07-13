@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using WPF_Ui.Models;
 
-namespace Semesterprojekt_Datenbank.Model
+namespace WPF_Ui.Models
 {
     public class ArticleGroup
     {

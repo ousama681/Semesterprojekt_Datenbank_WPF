@@ -3,11 +3,11 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System.Data;
 using System.IO;
-using Semesterprojekt_Datenbank;
+using WPF_Ui;
 
 #nullable disable
 
-namespace SemesterprojektDatenbank.Migrations
+namespace WPF_Ui.Migrations
 {
     /// <inheritdoc />
     public partial class AddImportZipcodes : Migration

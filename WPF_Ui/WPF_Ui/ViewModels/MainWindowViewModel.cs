@@ -55,7 +55,7 @@ namespace WPF_Ui.ViewModels
                     Content = "Customer",
                     PageTag = "customer",
                     Icon = SymbolRegular.DataHistogram24,
-                    PageType = typeof(Views.Pages.CustomerPage)
+                    PageType = typeof(WPF_Ui.Views.Pages.Customer.CustomerPage)
                 },
                 new NavigationItem()
                 {

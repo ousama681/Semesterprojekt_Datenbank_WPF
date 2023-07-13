@@ -1,14 +1,12 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Semesterprojekt_Datenbank;
-using Semesterprojekt_Datenbank.Model;
 using System.Data;
 using System.IO;
 
 #nullable disable
 
-namespace SemesterprojektDatenbank.Migrations
+namespace WPF_Ui.Migrations
 {
     /// <inheritdoc />
     public partial class CreatingTestingData : Migration

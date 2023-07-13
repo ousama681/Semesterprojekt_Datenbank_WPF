@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPF_Ui.Models;
 
-namespace Semesterprojekt_Datenbank.Model
+namespace WPF_Ui.Models
 {
     public class Invoice
     {

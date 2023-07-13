@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Semesterprojekt_Datenbank.Interfaces
+namespace WPF_Ui.Interfaces
 {
     public interface IDBUtility<T>
     {

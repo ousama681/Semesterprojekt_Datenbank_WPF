@@ -3,11 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Semesterprojekt_Datenbank;
+using WPF_Ui;
 
 #nullable disable
 
-namespace WPF_UI.Migrations
+namespace WPF_Ui.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20221225152433_AddedModelsAndEntityConfigs")]

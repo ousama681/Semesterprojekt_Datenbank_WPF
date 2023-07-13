@@ -9,6 +9,7 @@ using WPF_Ui.Views.Windows;
 using RelayCommand = CommunityToolkit.Mvvm.Input.RelayCommand;
 using Wpf.Ui.Mvvm.Contracts;
 using WPF_Ui.Views.Pages;
+using WPF_Ui.Views.Pages.Customer;
 
 namespace WPF_Ui.ViewModels
 {

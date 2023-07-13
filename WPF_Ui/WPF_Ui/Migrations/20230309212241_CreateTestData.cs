@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace SemesterprojektDatenbank.Migrations
+namespace WPF_Ui.Migrations
 {
     /// <inheritdoc />
     public partial class AddValuesToTheDateColumnInArticle : Migration

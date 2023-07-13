@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Semesterprojekt_Datenbank.Interfaces;
-using Semesterprojekt_Datenbank.Model;
 using System;
+using WPF_Ui.Interfaces;
+using WPF_Ui.Models;
 
-namespace Semesterprojekt_Datenbank.EntityConfiguration
+namespace WPF_Ui.EntityConfiguration
 {
     public class MWSTConf : IEntityConfiguration
     {

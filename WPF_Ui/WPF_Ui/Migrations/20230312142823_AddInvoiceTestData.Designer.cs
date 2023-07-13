@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Semesterprojekt_Datenbank;
+using WPF_Ui;
 
 #nullable disable
 
-namespace SemesterprojektDatenbank.Migrations
+namespace WPF_Ui.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20230312142823_AddInvoiceTestData")]

@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Semesterprojekt_Datenbank.EntityConfiguration;
-using Semesterprojekt_Datenbank.Model;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -13,8 +11,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using System.Configuration;
+using WPF_Ui.EntityConfiguration;
+using WPF_Ui.Models;
 
-namespace Semesterprojekt_Datenbank
+namespace WPF_Ui
 {
     public class DataContext : DbContext
     {

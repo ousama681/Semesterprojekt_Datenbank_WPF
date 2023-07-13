@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Semesterprojekt_Datenbank.Interfaces
+namespace WPF_Ui.Interfaces
 {
     public interface IEntityConfiguration
     {

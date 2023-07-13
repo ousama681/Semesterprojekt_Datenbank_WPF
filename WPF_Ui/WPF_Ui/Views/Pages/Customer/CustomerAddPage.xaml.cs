@@ -15,25 +15,20 @@ using System.Windows.Shapes;
 using Wpf.Ui.Common.Interfaces;
 using WPF_Ui.ViewModels;
 
-namespace WPF_Ui.Views.Pages
+namespace WPF_Ui.Views.Pages.Customer
 {
     /// <summary>
-    /// Interaction logic for CustomerEditPage.xaml
+    /// Interaction logic for CustomerAddPage.xaml
     /// </summary>
-    public partial class CustomerEditPage : INavigableView<ViewModels.CustomerEditViewModel>
+    public partial class CustomerAddPage : INavigableView<ViewModels.CustomerAddViewModel>
     {
-
-        public CustomerEditPage(CustomerEditViewModel viewModel)
+        public CustomerAddViewModel ViewModel { get; }
+        public CustomerAddPage(CustomerAddViewModel viewModel)
         {
             ViewModel = viewModel;
             InitializeComponent();
         }
 
-        public CustomerEditViewModel ViewModel { get; }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

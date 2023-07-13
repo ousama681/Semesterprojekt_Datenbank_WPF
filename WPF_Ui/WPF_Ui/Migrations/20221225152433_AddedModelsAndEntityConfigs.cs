@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace WPF_UI.Migrations
+namespace WPF_Ui.Migrations
 {
     /// <inheritdoc />
     public partial class AddedModelsAndEntityConfigs : Migration

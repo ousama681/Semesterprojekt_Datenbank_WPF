@@ -54,10 +54,12 @@ namespace WPF_Ui
                 services.AddScoped<ViewModels.DataViewModel>();
                 services.AddScoped<Views.Pages.SettingsPage>();
                 services.AddScoped<ViewModels.SettingsViewModel>();
-                services.AddScoped<Views.Pages.CustomerPage>();
+                services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerPage>();
                 services.AddScoped<ViewModels.CustomerViewModel>();
-                services.AddScoped<Views.Pages.CustomerEditPage>();
+                services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerEditPage>();
                 services.AddScoped<ViewModels.CustomerEditViewModel>();
+                services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerAddPage>();
+                services.AddScoped<ViewModels.CustomerAddViewModel>();
                 services.AddScoped<Views.Pages.ArticlePage>();
                 services.AddScoped<ViewModels.ArticleViewModel>();
 

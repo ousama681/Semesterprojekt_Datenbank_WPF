@@ -1,6 +1,8 @@
 ﻿using System.Linq;
+using WPF_Ui;
+using WPF_Ui.Models;
 
-namespace Semesterprojekt_Datenbank.Model
+namespace WPF_Ui.Models
 {
     public class Position
     {

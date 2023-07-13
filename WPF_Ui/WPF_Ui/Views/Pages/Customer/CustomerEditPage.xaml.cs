@@ -12,17 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.Ui.Common.Interfaces;
+using WPF_Ui.ViewModels;
+using WPF_Ui.Views.Pages;
 
-namespace WPF_Ui.Views.Pages
+namespace WPF_Ui.Views.Pages.Customer
 {
     /// <summary>
-    /// Interaction logic for TestPage.xaml
+    /// Interaction logic for CustomerEditPage.xaml
     /// </summary>
-    public partial class TestPage : Page
+    public partial class CustomerEditPage : INavigableView<ViewModels.CustomerEditViewModel>
     {
-        public TestPage()
+        public CustomerEditViewModel ViewModel { get; }
+        public CustomerEditPage(CustomerEditViewModel viewModel)
         {
+            ViewModel = viewModel;
             InitializeComponent();
         }
+
+
     }
 }

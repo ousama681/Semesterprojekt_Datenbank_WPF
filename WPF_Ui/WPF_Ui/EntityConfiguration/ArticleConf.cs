@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Semesterprojekt_Datenbank.Interfaces;
-using Semesterprojekt_Datenbank.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPF_Ui.Interfaces;
+using WPF_Ui.Models;
 
-namespace Semesterprojekt_Datenbank.EntityConfiguration
+namespace WPF_Ui.EntityConfiguration
 {
     public class ArticleConf : DbContext, IEntityConfiguration
     {
