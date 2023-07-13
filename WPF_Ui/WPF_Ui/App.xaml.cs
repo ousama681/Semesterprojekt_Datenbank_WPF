@@ -10,6 +10,8 @@ using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 using WPF_Ui.Models;
 using WPF_Ui.Services;
+using WPF_Ui.ViewModels.Customer;
+using WPF_Ui.ViewModels.Article;
 
 namespace WPF_Ui
 {
@@ -52,16 +54,16 @@ namespace WPF_Ui
                 services.AddScoped<ViewModels.DashboardViewModel>();
                 services.AddScoped<Views.Pages.DataPage>();
                 services.AddScoped<ViewModels.DataViewModel>();
-                services.AddScoped<Views.Pages.SettingsPage>();
-                services.AddScoped<ViewModels.SettingsViewModel>();
+                services.AddScoped<WPF_Ui.Views.Pages.Settings.SettingsPage>();
+                services.AddScoped<WPF_Ui.ViewModels.Settings.SettingsViewModel>();
                 services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerPage>();
-                services.AddScoped<ViewModels.CustomerViewModel>();
+                services.AddScoped<WPF_Ui.ViewModels.Customer.CustomerViewModel>();
                 services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerEditPage>();
-                services.AddScoped<ViewModels.CustomerEditViewModel>();
+                services.AddScoped<WPF_Ui.ViewModels.Customer.CustomerEditViewModel>();
                 services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerAddPage>();
-                services.AddScoped<ViewModels.CustomerAddViewModel>();
-                services.AddScoped<Views.Pages.ArticlePage>();
-                services.AddScoped<ViewModels.ArticleViewModel>();
+                services.AddScoped<WPF_Ui.ViewModels.Customer.CustomerAddViewModel>();
+                services.AddScoped<WPF_Ui.Views.Pages.Article.ArticlePage>();
+                services.AddScoped<WPF_Ui.ViewModels.Article.ArticleViewModel>();
 
                 // Configuration
                 services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

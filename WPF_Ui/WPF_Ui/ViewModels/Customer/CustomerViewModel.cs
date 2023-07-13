@@ -11,7 +11,7 @@ using Wpf.Ui.Mvvm.Contracts;
 using WPF_Ui.Views.Pages;
 using WPF_Ui.Views.Pages.Customer;
 
-namespace WPF_Ui.ViewModels
+namespace WPF_Ui.ViewModels.Customer
 {
     public class CustomerViewModel : ObservableObject, INavigationAware
     {
@@ -23,9 +23,9 @@ namespace WPF_Ui.ViewModels
 
         public CustomerViewModel()
         {
-            this.DeleteCommand = new RelayCommand(OnDelete);
-            this.EditCommand = new RelayCommand(OnEdit);
-            mainWindow = MainWindow.GetWindow(App.Current.MainWindow) as MainWindow;
+            DeleteCommand = new RelayCommand(OnDelete);
+            EditCommand = new RelayCommand(OnEdit);
+            mainWindow = Window.GetWindow(Application.Current.MainWindow) as MainWindow;
         }
 
         public void OnNavigatedTo()
@@ -38,7 +38,7 @@ namespace WPF_Ui.ViewModels
 
         public void OnNavigatedFrom()
         {
-            
+
         }
 
         private void InitializeViewModel()
@@ -55,7 +55,7 @@ namespace WPF_Ui.ViewModels
         {
             //CustomerEditWindow customerEditWindow = new CustomerEditWindow();
             //customerEditWindow.Show();            
-            mainWindow?.RootNavigation.Navigate(typeof(CustomerEditPage));           
+            mainWindow?.RootNavigation.Navigate(typeof(CustomerEditPage));
         }
     }
 }

@@ -2,20 +2,21 @@
 using Wpf.Ui.Mvvm.Contracts;
 using WPF_Ui.Views.Windows;
 using WPF_Ui.Views.Pages;
+using WPF_Ui.ViewModels.Customer;
 
 namespace WPF_Ui.Views.Pages.Customer
 {
     /// <summary>
     /// Interaction logic for CustomerPage.xaml
     /// </summary>
-    public partial class CustomerPage : INavigableView<ViewModels.CustomerViewModel>
+    public partial class CustomerPage : INavigableView<CustomerViewModel>
     {
-        public ViewModels.CustomerViewModel ViewModel
+        public CustomerViewModel ViewModel
         {
             get;
         }
 
-        public CustomerPage(ViewModels.CustomerViewModel viewModel)
+        public CustomerPage(CustomerViewModel viewModel)
         {
             ViewModel = viewModel;
             InitializeComponent();

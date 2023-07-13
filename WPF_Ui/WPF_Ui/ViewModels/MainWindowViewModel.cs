@@ -62,7 +62,7 @@ namespace WPF_Ui.ViewModels
                 Content = "Article",
                 PageTag = "article",
                 Icon = SymbolRegular.DataHistogram24,
-                PageType = typeof(Views.Pages.ArticlePage)
+                PageType = typeof(WPF_Ui.Views.Pages.Article.ArticlePage)
                 },
             };
 
@@ -73,7 +73,7 @@ namespace WPF_Ui.ViewModels
                     Content = "Settings",
                     PageTag = "settings",
                     Icon = SymbolRegular.Settings24,
-                    PageType = typeof(Views.Pages.SettingsPage)
+                    PageType = typeof(WPF_Ui.Views.Pages.Settings.SettingsPage)
                 }
             };
 

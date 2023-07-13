@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Wpf.Ui.Common.Interfaces;
 
-namespace WPF_Ui.ViewModels
+namespace WPF_Ui.ViewModels.Article
 {
     public class ArticleViewModel : ObservableObject, INavigationAware
     {

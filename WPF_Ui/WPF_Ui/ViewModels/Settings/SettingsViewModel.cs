@@ -3,8 +3,9 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
 using Wpf.Ui.Common.Interfaces;
+using WPF_Ui.ViewModels;
 
-namespace WPF_Ui.ViewModels
+namespace WPF_Ui.ViewModels.Settings
 {
     public partial class SettingsViewModel : ObservableObject, INavigationAware
     {
