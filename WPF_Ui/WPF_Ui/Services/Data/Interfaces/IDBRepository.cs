@@ -1,21 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace WPF_Ui.Services.Data.Interfaces
 {
-    public interface IDBUtility<T>
+    public interface IDBRepository<T>
     {
         // CRUD Funktionen der Datenbank
 
-        bool Create(T item);
+        Task<bool> AddAsync(T item);
 
-        List<T> Read();
-        T ReadSingle(T item);
+        Task<List<T>> GetAllAsync();
 
-        List<string> ReadFilter(List<string> item);
+        Task<T> GetAsync(T item);
 
-        void Update(T item);
+        Task<List<string>> GetFilteredAsync(List<string> item);
 
-        bool Delete(T item);
+        Task UpdateAsync(T item);
+
+        Task<bool> DeleteAsync(T item);
 
     }
 }
