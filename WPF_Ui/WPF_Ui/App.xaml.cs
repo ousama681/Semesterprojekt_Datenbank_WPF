@@ -47,24 +47,42 @@ namespace WPF_Ui
                 services.AddScoped<ViewModels.MainWindowViewModel>();
 
                 // Views and ViewModels
+                //Dashboard
                 services.AddScoped<Views.Pages.DashboardPage>();
                 services.AddScoped<ViewModels.DashboardViewModel>();
+
                 services.AddScoped<Views.Pages.DataPage>();
                 services.AddScoped<ViewModels.DataViewModel>();
+
+                //Settings
                 services.AddScoped<WPF_Ui.Views.Pages.Settings.SettingsPage>();
                 services.AddScoped<WPF_Ui.ViewModels.Settings.SettingsViewModel>();
+
+                //Customer
                 services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerPage>();
                 services.AddScoped<WPF_Ui.ViewModels.Customer.CustomerViewModel>();
                 services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerEditPage>();
                 services.AddScoped<WPF_Ui.ViewModels.Customer.CustomerEditViewModel>();
                 services.AddScoped<WPF_Ui.Views.Pages.Customer.CustomerAddPage>();
                 services.AddScoped<WPF_Ui.ViewModels.Customer.CustomerAddViewModel>();
+
+                //Article
                 services.AddScoped<WPF_Ui.Views.Pages.Article.ArticlePage>();
                 services.AddScoped<WPF_Ui.ViewModels.Article.ArticleViewModel>();
+                services.AddScoped<WPF_Ui.Views.Pages.Article.ArticleEditPage>();
+                services.AddScoped<WPF_Ui.ViewModels.Article.ArticleEditViewModel>();
+                services.AddScoped<WPF_Ui.Views.Pages.Article.ArticleAddPage>();
+                services.AddScoped<WPF_Ui.ViewModels.Article.ArticleAddViewModel>();
+
+                //ArticleGroup
                 services.AddScoped<WPF_Ui.Views.Pages.ArticleGroup.ArticleGroupPage>();
                 services.AddScoped<WPF_Ui.ViewModels.ArticleGroup.ArticleGroupViewModel>();
+
+                //Invoice
                 services.AddScoped<WPF_Ui.Views.Pages.Invoice.InvoicePage>();
                 services.AddScoped<WPF_Ui.ViewModels.Invoice.InvoiceViewModel>();
+
+                //Order
                 services.AddScoped<WPF_Ui.Views.Pages.Order.OrderPage>();
                 services.AddScoped<WPF_Ui.ViewModels.Order.OrderViewModel>();
 

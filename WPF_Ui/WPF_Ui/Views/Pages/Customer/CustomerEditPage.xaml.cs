@@ -9,6 +9,7 @@ namespace WPF_Ui.Views.Pages.Customer
     public partial class CustomerEditPage : INavigableView<WPF_Ui.ViewModels.Customer.CustomerEditViewModel>
     {
         public CustomerEditViewModel ViewModel { get; }
+
         public CustomerEditPage(CustomerEditViewModel viewModel)
         {
             ViewModel = viewModel;

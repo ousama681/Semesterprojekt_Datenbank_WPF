@@ -13,13 +13,9 @@ namespace WPF_Ui.ViewModels.Customer
         public CustomerEditViewModel()
         {
             if (!_isInitialized)
-                InitialiseViewModel();
+                InitializeViewModel();
         }
 
-        private void InitialiseViewModel()
-        {
-
-        }
 
         public void OnNavigatedTo()
         {

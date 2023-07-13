@@ -9,12 +9,11 @@ namespace WPF_Ui.Views.Pages.Customer
     public partial class CustomerAddPage : INavigableView<WPF_Ui.ViewModels.Customer.CustomerAddViewModel>
     {
         public CustomerAddViewModel ViewModel { get; }
+
         public CustomerAddPage(CustomerAddViewModel viewModel)
         {
             ViewModel = viewModel;
             InitializeComponent();
         }
-
-
     }
 }

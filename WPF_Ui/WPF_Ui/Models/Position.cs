@@ -26,6 +26,8 @@ namespace WPF_Ui.Models
 
         }
 
+
+        // TODO: refactor --> call position repo
         public override bool Equals(object? obj)
         {
             Position pos;

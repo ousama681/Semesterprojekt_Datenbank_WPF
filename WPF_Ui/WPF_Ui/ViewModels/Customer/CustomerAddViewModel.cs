@@ -13,12 +13,7 @@ namespace WPF_Ui.ViewModels.Customer
         public CustomerAddViewModel()
         {
             if (!_isInitialized)
-                InitialiseViewModel();
-        }
-
-        private void InitialiseViewModel()
-        {
-
+                InitializeViewModel();
         }
 
         public void OnNavigatedTo()

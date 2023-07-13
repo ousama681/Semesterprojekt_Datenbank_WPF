@@ -21,11 +21,14 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <ui:AutoSuggestBox Grid.Column="0" TextWrapping="Wrap" Text="Search" Height="35" Width="180" Margin="10"/>
-                <ui:Button Grid.Column="1" Command="{Binding ViewModel.EditCommand}" Content="Edit" Height="35" Width="83" Margin="10" />
-                <ui:Button HorizontalAlignment="Right" Grid.Column="2" Content="Delete" Height="35" Width="83" Margin="10"/>
+                <ui:Button Grid.Column="1" Command="{Binding ViewModel.AddCommand}" Content="Add" Height="35" Width="83" Margin="25,10,10,10" />
+                <ui:Button Grid.Column="2" Command="{Binding ViewModel.EditCommand}" Content="Edit" Height="35" Width="83" Margin="10" />
+
+                <ui:Button HorizontalAlignment="Right" Grid.Column="3" Content="Delete" Height="35" Width="83" Margin="10"/>
             </Grid>
         </ui:ClientAreaBorder>
         <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" Height="Auto" VerticalAlignment="Stretch" Margin="0,0,0,20">
