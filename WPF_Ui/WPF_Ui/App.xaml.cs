@@ -65,6 +65,8 @@ namespace WPF_Ui
                 services.AddScoped<WPF_Ui.ViewModels.ArticleGroup.ArticleGroupViewModel>();
                 services.AddScoped<WPF_Ui.Views.Pages.Invoice.InvoicePage>();
                 services.AddScoped<WPF_Ui.ViewModels.Invoice.InvoiceViewModel>();
+                services.AddScoped<WPF_Ui.Views.Pages.Order.OrderPage>();
+                services.AddScoped<WPF_Ui.ViewModels.Order.OrderViewModel>();
 
                 // Configuration
                 services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

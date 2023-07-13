@@ -39,9 +39,4 @@
     <Resource Include="Assets\applicationIcon-256.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\Order\" />
-    <Folder Include="Views\Pages\Order\" />
-  </ItemGroup>
-
 </Project>

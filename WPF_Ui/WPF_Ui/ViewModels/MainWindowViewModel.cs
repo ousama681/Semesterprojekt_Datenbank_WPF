@@ -69,7 +69,7 @@ namespace WPF_Ui.ViewModels
                     Content = "Orders",
                     PageTag = "order",
                     Icon = SymbolRegular.Album20,
-                    PageType = typeof(WPF_Ui.Views.Pages.Customer.CustomerPage)
+                    PageType = typeof(WPF_Ui.Views.Pages.Order.OrderPage)
                 },
                 new NavigationItem()
                 {
