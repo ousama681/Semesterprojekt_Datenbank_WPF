@@ -132,7 +132,7 @@ namespace WPF_Ui.ViewModels.Customer
                 TownId = town.Id
             };
 
-            _customerRepository.AddAsync(newCustomer);
+            await _customerRepository.AddAsync(newCustomer);
             mainWindow?.RootNavigation.Navigate(typeof(CustomerPage));
         }
 
