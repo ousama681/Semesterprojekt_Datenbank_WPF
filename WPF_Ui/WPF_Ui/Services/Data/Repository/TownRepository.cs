@@ -102,6 +102,24 @@ namespace WPF_Ui.Services.Data.Repository
             throw new NotImplementedException();
         }
 
+        public List<string> GetAllZipCodes()
+        {
+            try
+            {
+                if (_context != null)
+                {
+                    var result = (from town in _context.Town select town.ZipCode).ToList();                
+                    return result;
+                }
+                return new List<string>();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<string>();
+            }
+        }
+
         public async Task UpdateAsync(Town item)
         {
             try

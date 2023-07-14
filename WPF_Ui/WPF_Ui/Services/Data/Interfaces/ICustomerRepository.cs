@@ -9,6 +9,6 @@ namespace WPF_Ui.Services.Data.Interfaces
 {
     public interface ICustomerRepository : IDBRepository<Customer>
     {
-
+        int MaxNr();
     }
 }

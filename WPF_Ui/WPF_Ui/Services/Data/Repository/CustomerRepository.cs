@@ -117,5 +117,12 @@ namespace WPF_Ui.Services.Data.Repository
                 MessageBox.Show(ex.Message);                
             }
         }
+
+        public int MaxNr()
+        {
+            var number = (from cus in _context.Customer
+                          select cus.Nr).Max();
+            return number + 1;
+        }
     }
 }
