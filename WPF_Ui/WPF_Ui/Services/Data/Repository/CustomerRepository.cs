@@ -65,7 +65,7 @@ namespace WPF_Ui.Services.Data.Repository
             {
                 if (_context != null)
                 {
-                    var result = await _context.Customer.ToListAsync();
+                    var result = await _context.Customer.Include(c => c.Town).Include(c => c.Orders).Include(c => c.Invoices).ToListAsync();
                     await _context.SaveChangesAsync();
                     return result;
                 }
