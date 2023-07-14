@@ -8,7 +8,7 @@ using WPF_Ui.Services.Data.Interfaces;
 
 namespace WPF_Ui.Services.Data.Repository
 {
-    internal class MWSTRepository : IMWSTRepository
+    public class MWSTRepository : IMWSTRepository
     {
         public Task<bool> AddAsync(MWST item)
         {

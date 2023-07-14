@@ -7,7 +7,7 @@ using WPF_Ui.Models;
 
 namespace WPF_Ui.Services.Data.Interfaces
 {
-    internal interface IArticleGroupRepository : IDBRepository<ArticleGroup>
+    public interface IArticleGroupRepository : IDBRepository<ArticleGroup>
     {
     }
 }

@@ -7,7 +7,7 @@ using WPF_Ui.Models;
 
 namespace WPF_Ui.Services.Data.Interfaces
 {
-    internal interface ITownRepository :IDBRepository<Town>
+    public interface ITownRepository :IDBRepository<Town>
     {
     }
 }

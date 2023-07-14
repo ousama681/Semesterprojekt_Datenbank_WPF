@@ -38,12 +38,14 @@ namespace WPF_Ui.ViewModels.Customer
             mainWindow = Window.GetWindow(Application.Current.MainWindow) as MainWindow;
         }
 
-        public void OnNavigatedTo()
+        public async void OnNavigatedTo()
         {
             if (!_isInitialized)
             {
                 InitializeViewModel();
             }
+            List<WPF_Ui.Models.Customer> customers = await _customerRepository.GetAllAsync();
+            CustomerList = new ObservableCollection<WPF_Ui.Models.Customer>(customers);
         }
 
         public void OnNavigatedFrom()
@@ -51,11 +53,10 @@ namespace WPF_Ui.ViewModels.Customer
 
         }
 
-        private async void InitializeViewModel()
+        private void InitializeViewModel()
         {
             _isInitialized = true;
-            List<WPF_Ui.Models.Customer> customers = await _customerRepository.GetAllAsync();
-            CustomerList = new ObservableCollection<WPF_Ui.Models.Customer>(customers);
+           
         }
 
         public void OnAdd()

@@ -8,7 +8,7 @@ using WPF_Ui.Services.Data.Interfaces;
 
 namespace WPF_Ui.Services.Data.Repository
 {
-    internal class PositionRepository : IPositionRepository
+    public class PositionRepository : IPositionRepository
     {
         public Task<bool> AddAsync(Position item)
         {

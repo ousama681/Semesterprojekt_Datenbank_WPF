@@ -7,7 +7,7 @@ using WPF_Ui.Models;
 
 namespace WPF_Ui.Services.Data.Interfaces
 {
-    internal interface IInvoiceRepository : IDBRepository<Invoice>
+    public interface IInvoiceRepository : IDBRepository<Invoice>
     {
     }
 }

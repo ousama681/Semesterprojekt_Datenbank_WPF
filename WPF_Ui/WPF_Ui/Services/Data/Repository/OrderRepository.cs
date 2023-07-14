@@ -8,7 +8,7 @@ using WPF_Ui.Services.Data.Interfaces;
 
 namespace WPF_Ui.Services.Data.Repository
 {
-    internal class OrderRepository : IOrderRepository
+    public class OrderRepository : IOrderRepository
     {
         public Task<bool> AddAsync(Order item)
         {

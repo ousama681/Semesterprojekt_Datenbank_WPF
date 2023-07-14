@@ -8,7 +8,7 @@ using WPF_Ui.Services.Data.Interfaces;
 
 namespace WPF_Ui.Services.Data.Repository
 {
-    internal class InvoiceRepository : IInvoiceRepository
+    public class InvoiceRepository : IInvoiceRepository
     {
         public Task<bool> AddAsync(Invoice item)
         {

@@ -7,7 +7,7 @@ using WPF_Ui.Models;
 
 namespace WPF_Ui.Services.Data.Interfaces
 {
-    internal interface IPositionRepository : IDBRepository<Position>
+    public interface IPositionRepository : IDBRepository<Position>
     {
     }
 }

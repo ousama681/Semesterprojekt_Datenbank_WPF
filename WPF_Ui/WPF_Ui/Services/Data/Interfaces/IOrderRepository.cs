@@ -7,7 +7,7 @@ using WPF_Ui.Models;
 
 namespace WPF_Ui.Services.Data.Interfaces
 {
-    internal interface IOrderRepository : IDBRepository<Order>
+    public interface IOrderRepository : IDBRepository<Order>
     {
     }
 }

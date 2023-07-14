@@ -8,7 +8,7 @@ using WPF_Ui.Services.Data.Interfaces;
 
 namespace WPF_Ui.Services.Data.Repository
 {
-    internal class ArticleRepository : IArticleRepository
+    public class ArticleRepository : IArticleRepository
     {
         public Task<bool> AddAsync(Article item)
         {
