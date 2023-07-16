@@ -38,6 +38,6 @@ namespace WPF_Ui.Services
                 throw new InvalidOperationException("The page should be a WPF control.");
 
             return _serviceProvider.GetService(pageType) as FrameworkElement;
-        }
+        }      
     }
 }

@@ -20,17 +20,26 @@ namespace WPF_Ui.ViewModels.Customer
         public ICommand EditCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public readonly ICustomerRepository _customerRepository;
+        public readonly ITownRepository _townRepository;
+
         private ObservableCollection<WPF_Ui.Models.Customer> _customerList;
         public ObservableCollection<WPF_Ui.Models.Customer> CustomerList
         {
             get { return _customerList; }
             set { SetProperty(ref _customerList, value); }
         }
+        private WPF_Ui.Models.Customer _selectedCustomer;
+        public WPF_Ui.Models.Customer SelectedCustomer
+        {
+            get { return _selectedCustomer; }
+            set { SetProperty(ref _selectedCustomer, value); }
+        }
 
         MainWindow? mainWindow;
 
-        public CustomerViewModel(ICustomerRepository customerRepository)
+        public CustomerViewModel(ICustomerRepository customerRepository, ITownRepository townRepository)
         {
+            _townRepository = townRepository;
             _customerRepository = customerRepository;
             DeleteCommand = new RelayCommand(OnDelete);
             EditCommand = new RelayCommand(OnEdit);
@@ -50,7 +59,7 @@ namespace WPF_Ui.ViewModels.Customer
 
         public void OnNavigatedFrom()
         {
-
+          
         }
 
         private void InitializeViewModel()
@@ -63,14 +72,21 @@ namespace WPF_Ui.ViewModels.Customer
         {
             mainWindow?.RootNavigation.Navigate(typeof(CustomerAddPage));
         }
-        private void OnDelete()
+        private async void OnDelete()
         {
-
+            await _customerRepository.DeleteAsync(SelectedCustomer);
+            OnNavigatedTo();
         }
 
         public void OnEdit()
         {
-            mainWindow?.RootNavigation.Navigate(typeof(CustomerEditPage));
+            CustomerEditPage editPage;
+            if (SelectedCustomer != null)
+            {
+                editPage = new CustomerEditPage(new CustomerEditViewModel(_customerRepository, _townRepository), this);
+                mainWindow?.GetFrame().Navigate(editPage);
+            }
         }
+
     }
 }

@@ -10,12 +10,13 @@ namespace WPF_Ui.Views.Pages.Customer
     {
         public CustomerEditViewModel ViewModel { get; }
 
-        public CustomerEditPage(CustomerEditViewModel viewModel)
+        public CustomerEditPage(CustomerEditViewModel viewModel, CustomerViewModel customerViewModel)
         {
             ViewModel = viewModel;
+            ViewModel.SelectedCustomer = customerViewModel.SelectedCustomer;
             InitializeComponent();
+            DataContext = this;
         }
-
 
     }
 }

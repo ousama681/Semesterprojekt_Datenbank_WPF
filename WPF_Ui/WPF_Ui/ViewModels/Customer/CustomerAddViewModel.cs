@@ -79,7 +79,7 @@ namespace WPF_Ui.ViewModels.Customer
         public string Country
         {
             get { return _country; }
-            set { SetProperty(ref _city, value); }
+            set { SetProperty(ref _country, value); }
         }
 
         public CustomerAddViewModel(ICustomerRepository customerRepository, ITownRepository townRepository)
@@ -131,19 +131,27 @@ namespace WPF_Ui.ViewModels.Customer
             };
             var town = await _townRepository.GetAsync(newTown);
 
-            Models.Customer newCustomer = new Models.Customer
+            if(town.Id != 0)
             {
-                Nr = CustomerNumber,
-                Name = CustomerName,
-                Street = Street,               
-                Email = Email,
-                Website = Website,
-                Password = Password,
-                TownId = town.Id
-            };
+                Models.Customer newCustomer = new Models.Customer
+                {
+                    Nr = CustomerNumber,
+                    Name = CustomerName,
+                    Street = Street,
+                    Email = Email,
+                    Website = Website,
+                    Password = Password,
+                    TownId = town.Id
+                };
 
-            await _customerRepository.AddAsync(newCustomer);
-            mainWindow?.RootNavigation.Navigate(typeof(CustomerPage));
+                await _customerRepository.AddAsync(newCustomer);
+                mainWindow?.RootNavigation.Navigate(typeof(CustomerPage));
+            }
+            else
+            {
+                MessageBox.Show("Check address details");
+            }
+           
         }
 
         [RelayCommand]

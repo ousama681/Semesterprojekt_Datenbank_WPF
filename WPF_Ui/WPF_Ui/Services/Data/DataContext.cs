@@ -19,7 +19,8 @@ namespace WPF_Ui.Services.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);           
+            base.OnConfiguring(optionsBuilder);       
+            optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseSqlServer(GetConnectionStringByName("connection"));
             optionsBuilder.LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Debug);
         }

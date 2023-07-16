@@ -60,7 +60,7 @@
         <Label Grid.Column="2" Grid.Row="5" Margin="10,0,0,0" Content="Password" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="30" FontSize="18" />
         <Label Grid.Column="2" Grid.Row="7" Margin="10,0,0,0" Content="Ort" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="30" FontSize="18" />
 
-        <ui:Button Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" Content="Submit" Command="{Binding ViewModel.AddCommand}" MinWidth="100" MaxWidth="100" VerticalAlignment="Top" />
+        <ui:Button Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" Content="Add" Command="{Binding ViewModel.AddCommand}" MinWidth="100" MaxWidth="100" VerticalAlignment="Top" />
         <ui:Button Grid.Column="3" Grid.Row="10" HorizontalAlignment="Left" Content="Back" Command="{Binding ViewModel.BackCommand}" MinWidth="100" MaxWidth="100" VerticalAlignment="Top" />
     </Grid>
 </ui:UiPage>
