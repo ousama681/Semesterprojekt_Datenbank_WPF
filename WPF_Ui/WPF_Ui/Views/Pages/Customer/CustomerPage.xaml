@@ -29,7 +29,7 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ui:AutoSuggestBox Grid.Column="0" TextWrapping="Wrap" Text="Search" Height="35" Width="180" Margin="10"/>
+                <ui:AutoSuggestBox Grid.Column="0" co TextWrapping="Wrap" Text="Search" Height="35" Width="180" Margin="10"/>
                 <ui:Button Grid.Column="1" Command="{Binding ViewModel.AddCommand}" Content="Add" Height="35" Width="83" Margin="25,10,10,10" />
                 <ui:Button Grid.Column="2" Command="{Binding ViewModel.EditCommand}" Content="Edit" Height="35" Width="83" Margin="10" />
                 <ui:Button HorizontalAlignment="Right" Command="{Binding ViewModel.DeleteCommand}" Grid.Column="3" Content="Delete" Height="35" Width="83" Margin="10"/>
