@@ -41,7 +41,7 @@
             <ColumnDefinition Width="300"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ui:TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Text="{Binding ViewModel.CustomerNumber, Mode=TwoWay}" TextWrapping="Wrap" MinWidth="200" MaxWidth="200" VerticalAlignment="Top" />
+        <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Text="{Binding ViewModel.CustomerNumber, Mode=TwoWay}" MinWidth="200" MaxWidth="200" VerticalAlignment="Top" IsReadOnly="True"/>
         <ui:TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Text="{Binding ViewModel.CustomerName, Mode=TwoWay}" TextWrapping="Wrap" MinWidth="200" MaxWidth="200" VerticalAlignment="Top"/>
         <ui:TextBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Text="{Binding ViewModel.Street, Mode=TwoWay}" TextWrapping="Wrap" MinWidth="200" MaxWidth="200" VerticalAlignment="Top" />
         <ui:TextBox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" Text="{Binding ViewModel.ZipCode, Mode=TwoWay}" MinWidth="200" MaxWidth="200" VerticalAlignment="Top"/>
