@@ -29,14 +29,14 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ui:AutoSuggestBox Grid.Column="0"  TextWrapping="Wrap" Text="Search" Height="35" Width="180" Margin="10"/>
+                <TextBox Grid.Column="0" Text="{Binding ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="35" Width="180" Margin="10"/>
                 <ui:Button Grid.Column="1" Command="{Binding ViewModel.AddCommand}" Content="Add" Height="35" Width="83" Margin="25,10,10,10" />
                 <ui:Button Grid.Column="2" Command="{Binding ViewModel.EditCommand}" Content="Edit" Height="35" Width="83" Margin="10" />
                 <ui:Button HorizontalAlignment="Right" Command="{Binding ViewModel.DeleteCommand}" Grid.Column="3" Content="Delete" Height="35" Width="83" Margin="10"/>
             </Grid>
         </ui:ClientAreaBorder>
         <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" Height="Auto" VerticalAlignment="Stretch" Margin="0,0,0,20">
-            <DataGrid x:Name="DgvCustomer" ItemsSource="{Binding ViewModel.CustomerList}" SelectedItem="{Binding ViewModel.SelectedCustomer}" AutoGenerateColumns="False" MinHeight="400" Height="Auto" VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True">
+            <DataGrid x:Name="DgvCustomer" ItemsSource="{Binding ViewModel.FilteredCustomers}" SelectedItem="{Binding ViewModel.SelectedCustomer}" AutoGenerateColumns="False" MinHeight="400" Height="Auto" VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True">
                 <DataGrid.CellStyle>
                     <Style TargetType="DataGridCell">
                         <Setter Property="Padding" Value="7,2,7,2"/>
