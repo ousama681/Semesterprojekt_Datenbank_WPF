@@ -9,5 +9,6 @@ namespace WPF_Ui.Services.Data.Interfaces
 {
     public interface IArticleGroupRepository : IDBRepository<ArticleGroup>
     {
+        Task<ArticleGroup> GetByNameAsync(ArticleGroup item);
     }
 }

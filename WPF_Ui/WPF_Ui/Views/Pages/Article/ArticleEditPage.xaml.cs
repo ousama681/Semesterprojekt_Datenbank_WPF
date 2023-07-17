@@ -24,10 +24,12 @@ namespace WPF_Ui.Views.Pages.Article
     {
         public ArticleEditViewModel ViewModel { get; }
 
-        public ArticleEditPage(ArticleEditViewModel viewModel)
+        public ArticleEditPage(ArticleEditViewModel viewModel, ArticleViewModel articleViewModel)
         {
             ViewModel = viewModel;
+            ViewModel.SelectedArticle = articleViewModel.SelectedArticle;
             InitializeComponent();
+            DataContext = this;
         }
     }
 }

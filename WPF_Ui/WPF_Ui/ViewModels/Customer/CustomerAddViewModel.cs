@@ -150,8 +150,7 @@ namespace WPF_Ui.ViewModels.Customer
             else
             {
                 MessageBox.Show("Check address details");
-            }
-           
+            }           
         }
 
         [RelayCommand]

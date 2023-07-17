@@ -9,5 +9,6 @@ namespace WPF_Ui.Services.Data.Interfaces
 {
     public interface IArticleRepository : IDBRepository<Article>
     {
+        int MaxNr();
     }
 }

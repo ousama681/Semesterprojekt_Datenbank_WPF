@@ -29,6 +29,7 @@ namespace WPF_Ui.Views.Pages.Article
         {
             ViewModel = viewModel;
             InitializeComponent();
+            DataContext = this;
         }
     }
 }
