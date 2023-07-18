@@ -15,14 +15,15 @@
         <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
     </ui:UiPage.Resources>
 
-    <StackPanel Margin="56,0">
-        <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" Height="60">
+    <DockPanel Margin="56,0">
+        <!-- Header area content (assuming you want the buttons and search box in the header) -->
+        <ui:ClientAreaBorder DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" Height="60">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="0" Text="{Binding ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="35" Width="180" Margin="10"/>
                 <ui:Button Grid.Column="1" Command="{Binding ViewModel.AddCommand}" Content="Add" Height="35" Width="83" Margin="25,10,10,10" />
@@ -30,8 +31,10 @@
                 <ui:Button HorizontalAlignment="Right" Command="{Binding ViewModel.DeleteCommand}" Grid.Column="3" Content="Delete" Height="35" Width="83" Margin="10"/>
             </Grid>
         </ui:ClientAreaBorder>
-        <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" Height="Auto" VerticalAlignment="Stretch" Margin="0,0,0,20">
-            <DataGrid x:Name="DgvCustomer" ItemsSource="{Binding ViewModel.FilteredArticles}" SelectedItem="{Binding ViewModel.SelectedArticle}" AutoGenerateColumns="False" MinHeight="400" Height="Auto"  VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True">
+
+        <!-- DataGrid filling the available space -->
+        <ui:ClientAreaBorder DockPanel.Dock="Bottom" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Stretch" Margin="0,0,0,20">
+            <DataGrid x:Name="DgvCustomer" ItemsSource="{Binding ViewModel.FilteredArticles}" SelectedItem="{Binding ViewModel.SelectedArticle}" AutoGenerateColumns="False"  VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True">
                 <DataGrid.CellStyle>
                     <Style TargetType="DataGridCell">
                         <Setter Property="Padding" Value="7,2,7,2"/>
@@ -49,11 +52,10 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Nr" Binding="{Binding Nr}" />
                     <DataGridTextColumn Header="Name"  Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Prrice" Binding="{Binding Price}" />
-                    <DataGridTextColumn Header="Articlegroup" Binding="{Binding ArticleGroup.Name}" />
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                    <DataGridTextColumn Header="ArticleGroup" Binding="{Binding ArticleGroup.Name}" />
                 </DataGrid.Columns>
             </DataGrid>
         </ui:ClientAreaBorder>
-
-    </StackPanel>
+    </DockPanel>
 </ui:UiPage>
