@@ -111,7 +111,7 @@ namespace WPF_Ui.ViewModels.Article
                 Name = SelectedArticle.ArticleGroup.Name,
             };
 
-            var articleGroup = _articleGroupRepository.GetAsync(newArticleGroup);
+            var articleGroup = await _articleGroupRepository.GetByNameAsync(newArticleGroup);
 
             SelectedArticle.Name = ArticleName;
             SelectedArticle.Price = Price;
