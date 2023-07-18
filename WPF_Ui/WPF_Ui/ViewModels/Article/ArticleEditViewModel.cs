@@ -108,7 +108,7 @@ namespace WPF_Ui.ViewModels.Article
         {
             Models.ArticleGroup newArticleGroup = new Models.ArticleGroup
             {
-                Name = SelectedArticle.ArticleGroup.Name,
+                Name = ArticleGroup
             };
 
             var articleGroup = await _articleGroupRepository.GetByNameAsync(newArticleGroup);
@@ -118,6 +118,7 @@ namespace WPF_Ui.ViewModels.Article
 
             if (articleGroup.Id != 0)
             {
+
                 SelectedArticle.ArticleGroupId = articleGroup.Id;
                 await _articleRepository.UpdateAsync(SelectedArticle);
                 OnBackClick();
