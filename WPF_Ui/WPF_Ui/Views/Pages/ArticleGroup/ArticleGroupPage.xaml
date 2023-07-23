@@ -7,6 +7,8 @@
     xmlns:local="clr-namespace:WPF_Ui.Views.Pages.ArticleGroup"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        
     
     Title="ArticleGroupPage"
     d:DataContext="{d:DesignInstance local:ArticleGroupPage,
@@ -30,23 +32,24 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ui:AutoSuggestBox Grid.Column="0" TextWrapping="Wrap" Text="Search" Height="35" Width="180" Margin="10"/>
-                <ui:TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="New Articlegroup" MinWidth="150" MaxWidth="150" Margin="10"/>
-                <ui:Button Grid.Column="2" Command="{Binding ViewModel.AddCommand}" Content="Add" Height="35" Width="83" Margin="10" />
-                <ui:Button Grid.Column="3" Command="{Binding ViewModel.EditCommand}" Content="Edit" Height="35" Width="83" Margin="20,10,10,10" />
-                <ui:Button HorizontalAlignment="Right" Grid.Column="4" Content="Delete" Height="35" Width="83" Margin="10"/>
+                <TextBox Name="SearchBox" Text="{Binding ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" TextWrapping="Wrap" Height="35" Width="180" Margin="10">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding ViewModel.SearchCommand}" Key="Enter"></KeyBinding>
+                    </TextBox.InputBindings>
+                </TextBox>
+                    <ui:TextBox Name="NewAGName" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding ViewModel.NewArticleGroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="150" MaxWidth="150" Margin="10"/>
+                <ui:Button Name="AddCmd" Grid.Column="2" Command="{Binding ViewModel.AddCommand}" Content="Add" Height="35" Width="83" Margin="10" IsEnabled="False" />
+                <ui:Button Name="EditCmd" Grid.Column="3" Command="{Binding ViewModel.EditCommand}" Content="Edit" Height="35" Width="83" Margin="20,10,10,10" IsEnabled="False" />
+                <ui:Button Name="DelCmd" HorizontalAlignment="Right" Grid.Column="4" Command="{Binding ViewModel.DeleteCommand}" Content="Delete" Height="35" Width="83" Margin="10" IsEnabled="False"/>
                 </Grid>
             </ui:ClientAreaBorder>
             <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" Height="Auto" VerticalAlignment="Stretch" Margin="0,0,0,20">
-            <TreeView>
-                <TreeViewItem Header="Level 1" IsExpanded="True">
-                    <TreeViewItem Header="Level 2.1" />
-                    <TreeViewItem Header="Level 2.2" IsExpanded="True">
-                        <TreeViewItem Header="Level 3.1" />
-                        <TreeViewItem Header="Level 3.2" />
-                    </TreeViewItem>
-                    <TreeViewItem Header="Level 2.3" />
-                </TreeViewItem>
+            <TreeView x:Name="ArtGroupTr" ItemsSource="{Binding ViewModel.ArticleGroups, Mode=TwoWay}" SelectedItemChanged="TreeView_SelectedItemChanged">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                        <TextBlock Text="{Binding Name}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
             </TreeView>
         </ui:ClientAreaBorder>
 

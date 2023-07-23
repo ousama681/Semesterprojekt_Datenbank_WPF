@@ -92,7 +92,7 @@ namespace WPF_Ui
 
                 //ArticleGroup
                 services.AddScoped<WPF_Ui.Views.Pages.ArticleGroup.ArticleGroupPage>();
-                services.AddScoped<WPF_Ui.ViewModels.ArticleGroup.ArticleGroupViewModel>();
+                services.AddScoped<WPF_Ui.ViewModels.ArticleGroupWM.ArticleGroupViewModel>();
 
                 //Invoice
                 services.AddScoped<WPF_Ui.Views.Pages.Invoice.InvoicePage>();

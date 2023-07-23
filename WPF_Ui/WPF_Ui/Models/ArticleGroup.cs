@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WPF_Ui.Models
 {
@@ -6,14 +7,15 @@ namespace WPF_Ui.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string? ParentId { get; set; }
-        public virtual ICollection<Article> Articles { get; set; }
-        public ArticleGroup() { }
+        public int? ParentId { get; set; }
 
-        public ArticleGroup(string name, string? parentId)
-        {
-            Name = name;
-            ParentId = parentId;
+        public virtual ArticleGroup Parent { get; set; }
+
+        public virtual ICollection<Article> Articles { get; set; }
+        public virtual List<ArticleGroup> Children { get; set; }
+
+
+        public ArticleGroup() {
         }
     }
 }

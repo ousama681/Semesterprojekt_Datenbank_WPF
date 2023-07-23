@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using WPF_Ui.Models;
@@ -18,19 +17,47 @@ namespace WPF_Ui.Services.Data.Repository
             _context = context;
         }
 
-        public Task<bool> AddAsync(ArticleGroup item)
+        public async Task<bool> AddAsync(ArticleGroup item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _context.ArticleGroup.AddAsync(item);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
-        public Task<bool> DeleteAsync(ArticleGroup item)
+        public async Task<bool> DeleteAsync(ArticleGroup item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.ArticleGroup.Remove(item);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
-        public Task<List<ArticleGroup>> GetAllAsync()
+        public async Task<List<ArticleGroup>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _context.ArticleGroup.Include(a => a.Articles).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<ArticleGroup>();
+            }
         }
 
         public async Task<ArticleGroup> GetAsync(ArticleGroup item)
@@ -76,9 +103,32 @@ namespace WPF_Ui.Services.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(ArticleGroup item)
+        public async Task UpdateAsync(ArticleGroup item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Update(item);
+                await _context.SaveChangesAsync();
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        public async Task<List<Article>> GetArticlesOfArticleGroup(ArticleGroup articleGroup)
+        {
+            try
+            {
+                return await _context.Article.Include(a => a.ArticleGroup).Where(a => a.ArticleGroupId == articleGroup.Id).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<Article>();
+            }
         }
     }
 }
