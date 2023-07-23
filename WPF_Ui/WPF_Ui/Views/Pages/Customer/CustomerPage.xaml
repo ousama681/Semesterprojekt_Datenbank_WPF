@@ -39,7 +39,7 @@
 
         <!-- DataGrid filling the available space -->
         <ui:ClientAreaBorder DockPanel.Dock="Bottom" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Stretch" Margin="0,0,0,20">
-            <DataGrid x:Name="DgvCustomer" ItemsSource="{Binding ViewModel.FilteredCustomers}" SelectedItem="{Binding ViewModel.SelectedCustomer}" AutoGenerateColumns="False" MinHeight="400" Height="Auto" VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True">
+            <DataGrid x:Name="DgvCustomer" ItemsSource="{Binding ViewModel.FilteredCustomers}" SelectedItem="{Binding ViewModel.SelectedCustomer}" AutoGenerateColumns="False" MinHeight="400" Height="Auto" VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" SelectionChanged="DgvCustomer_SelectionChanged">
                 <DataGrid.CellStyle>
                     <Style TargetType="DataGridCell">
                         <Setter Property="Padding" Value="7,2,7,2"/>

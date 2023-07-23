@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WPF_Ui.Models;
 using WPF_Ui.Services.Data.Interfaces;
 
@@ -10,6 +12,13 @@ namespace WPF_Ui.Services.Data.Repository
 {
     public class PositionRepository : IPositionRepository
     {
+        private readonly DataContext _context;
+
+        public PositionRepository(DataContext context)
+        {
+            _context = context;
+        }
+
         public Task<bool> AddAsync(Position item)
         {
             throw new NotImplementedException();
@@ -20,9 +29,19 @@ namespace WPF_Ui.Services.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<Position>> GetAllAsync()
+        public async Task<List<Position>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _context.Position
+                    .Include(a => a.Article)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<Position>();
+            }
         }
 
         public Task<Position> GetAsync(Position item)

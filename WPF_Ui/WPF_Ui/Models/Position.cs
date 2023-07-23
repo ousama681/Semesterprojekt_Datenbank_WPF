@@ -27,40 +27,40 @@ namespace WPF_Ui.Models
         }
 
 
-        // TODO: refactor --> call position repo
-        public override bool Equals(object? obj)
-        {
-            Position pos;
-            if (obj == null)
-            {
-                return false;
-            }
-            pos = (Position)obj;
-            string posArticleName = "";
-            string thisArticleName = "";
+        //// TODO: refactor --> call position repo
+        //public override bool Equals(object? obj)
+        //{
+        //    Position pos;
+        //    if (obj == null)
+        //    {
+        //        return false;
+        //    }
+        //    pos = (Position)obj;
+        //    string posArticleName = "";
+        //    string thisArticleName = "";
 
-            using (var context = new DataContext())
-            {
-                posArticleName = (from p in context.Position
-                                  where p.ArticleId == pos.ArticleId && p.OrderId == pos.OrderId
-                                  select p.Article.Name).SingleOrDefault();
-                thisArticleName = (from p in context.Position
-                                   where p.ArticleId == pos.ArticleId && p.OrderId == pos.OrderId
-                                   select p.Article.Name).SingleOrDefault();
-            }
+        //    using (var context = new DataContext())
+        //    {
+        //        posArticleName = (from p in context.Position
+        //                          where p.ArticleId == pos.ArticleId && p.OrderId == pos.OrderId
+        //                          select p.Article.Name).SingleOrDefault();
+        //        thisArticleName = (from p in context.Position
+        //                           where p.ArticleId == pos.ArticleId && p.OrderId == pos.OrderId
+        //                           select p.Article.Name).SingleOrDefault();
+        //    }
 
-            if (posArticleName == null && thisArticleName == null)
-            {
-                return false;
-            }
+        //    if (posArticleName == null && thisArticleName == null)
+        //    {
+        //        return false;
+        //    }
 
-            if (posArticleName.Equals(thisArticleName))
-            {
-                return true;
-            }
+        //    if (posArticleName.Equals(thisArticleName))
+        //    {
+        //        return true;
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
         public string PositionToString(int positionNr)
         {

@@ -66,7 +66,7 @@ namespace WPF_Ui.ViewModels
                 },
                 new NavigationItem()
                 {
-                    Content = "Orders",
+                    Content = "Orders and Positions",
                     PageTag = "order",
                     Icon = SymbolRegular.Album20,
                     PageType = typeof(WPF_Ui.Views.Pages.Order.OrderPage)

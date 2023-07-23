@@ -32,7 +32,13 @@ namespace WPF_Ui.Views.Pages.Order
         {
             ViewModel = viewModel;
             InitializeComponent();
+            DataContext = this;
 
+        }
+
+        private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            ViewModel.SelectedArticleGroup = (Models.ArticleGroup)ArtGroupTr.SelectedItem;
         }
     }
 }
