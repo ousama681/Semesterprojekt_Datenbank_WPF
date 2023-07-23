@@ -105,8 +105,8 @@ namespace WPF_Ui.ViewModels.Article
                     Nr = ArticleNumber,
                     Name = ArticleName,
                     Price = Price,
-                    ArticleGroupId = articleGroup.Id
-
+                    ArticleGroupId = articleGroup.Id,
+                    Mwstid = 1
                 };
             
                 await _articleRepository.AddAsync(newArticle);

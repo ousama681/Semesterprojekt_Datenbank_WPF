@@ -108,16 +108,17 @@ namespace WPF_Ui.ViewModels.Article
         {
             Models.ArticleGroup newArticleGroup = new Models.ArticleGroup
             {
-                Name = SelectedArticle.ArticleGroup.Name,
+                Name = ArticleGroup
             };
 
-            var articleGroup = _articleGroupRepository.GetAsync(newArticleGroup);
+            var articleGroup = await _articleGroupRepository.GetByNameAsync(newArticleGroup);
 
             SelectedArticle.Name = ArticleName;
             SelectedArticle.Price = Price;
 
             if (articleGroup.Id != 0)
             {
+
                 SelectedArticle.ArticleGroupId = articleGroup.Id;
                 await _articleRepository.UpdateAsync(SelectedArticle);
                 OnBackClick();
