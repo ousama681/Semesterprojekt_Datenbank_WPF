@@ -54,6 +54,22 @@ namespace WPF_Ui.Services.Data.Repository
             throw new NotImplementedException();
         }
 
+        public async Task<List<Position>> GetOrderPositions(Order order)
+        {
+            try
+            {
+                return await _context.Position
+                    .Include(p => p.Article)
+                    .Where(p => p.OrderId == order.Id)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<Position>();
+            }
+        }
+
         public Task UpdateAsync(Position item)
         {
             throw new NotImplementedException();

@@ -48,17 +48,24 @@ namespace WPF_Ui.ViewModels.Order
 
         // TreeView end
 
-        // Positions 
+        // Orders
 
-        private ObservableCollection<Position> positions;
-        public ObservableCollection<Position> Positions
+        private ObservableCollection<Position> orderPositions;
+        public ObservableCollection<Position> OrderPositions
         {
-            get => positions;
-            set => SetProperty(ref positions, value);
+            get => orderPositions;
+            set => SetProperty(ref orderPositions, value);
         }
 
-        // Positions end
 
+        private Models.Order selectedOrder;
+        public Models.Order SelectedOrder
+        {
+            get => selectedOrder;
+            set => SetProperty(ref selectedOrder, value);
+        }
+
+        // orders end
 
         public readonly IOrderRepository repository;
 
@@ -72,7 +79,7 @@ namespace WPF_Ui.ViewModels.Order
             mainWindow = Window.GetWindow(Application.Current.MainWindow) as MainWindow;
 
             ArticleGroups = new ObservableCollection<ArticleGroup>();
-            Positions = new ObservableCollection<Position>();
+            OrderPositions = new ObservableCollection<Position>();
 
             this.repository = repository;
         }
@@ -92,7 +99,7 @@ namespace WPF_Ui.ViewModels.Order
         {
             var repository = new PositionRepository(new DataContext());
             List<Models.Position> positions = await repository.GetAllAsync();
-            Positions = new ObservableCollection<Position>(positions);
+            OrderPositions = new ObservableCollection<Position>(positions);
         }
 
         private async void LoadOrders()
@@ -130,6 +137,13 @@ namespace WPF_Ui.ViewModels.Order
         public void OnEdit()
         {
             //mainWindow?.RootNavigation.Navigate(typeof(CustomerEditPage));
+        }
+
+        internal async  void SetPositionsOfOrder()
+        {
+            var repository = new PositionRepository(new DataContext());
+            List<Models.Position> positions = await repository.GetOrderPositions(SelectedOrder);
+            OrderPositions = new ObservableCollection<Position>(positions);
         }
     }
 }

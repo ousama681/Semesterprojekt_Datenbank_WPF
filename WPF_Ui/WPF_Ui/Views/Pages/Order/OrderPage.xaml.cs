@@ -40,5 +40,10 @@ namespace WPF_Ui.Views.Pages.Order
         {
             ViewModel.SelectedArticleGroup = (Models.ArticleGroup)ArtGroupTr.SelectedItem;
         }
+
+        private void DgvOrders_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ViewModel.SetPositionsOfOrder();
+        }
     }
 }

@@ -24,7 +24,21 @@
 
 
             <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" Height="Auto">
-                <DataGrid x:Name="DgvOrders" HorizontalAlignment="Center" ItemsSource="{Binding ViewModel.Orders}" AutoGenerateColumns="False">
+                <DataGrid x:Name="DgvOrders" SelectedItem="{Binding ViewModel.SelectedOrder}" HorizontalAlignment="Center" ItemsSource="{Binding ViewModel.Orders}" AutoGenerateColumns="False" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" IsReadOnly="True" SelectionChanged="DgvOrders_SelectionChanged">
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Padding" Value="7,2,7,2"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                        <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGrid.CellStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nr" Binding="{Binding Id}" />
                         <DataGridTextColumn Header="Name"  Binding="{Binding Customer.Name}"/>
@@ -42,7 +56,7 @@
 
 
             <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch">
-                <DataGrid HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding ViewModel.Positions}" AutoGenerateColumns="False">
+                <DataGrid HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding ViewModel.OrderPositions}" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Pos" Binding="{Binding Id}" />
                         <DataGridTextColumn Header="Artikelname"  Binding="{Binding Article.Name}"/>

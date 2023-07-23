@@ -9,5 +9,6 @@ namespace WPF_Ui.Services.Data.Interfaces
 {
     public interface IPositionRepository : IDBRepository<Position>
     {
+        Task<List<Position>> GetOrderPositions(Order order);
     }
 }
