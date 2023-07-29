@@ -19,14 +19,34 @@ namespace WPF_Ui.Services.Data.Repository
             _context = context;
         }
 
-        public Task<bool> AddAsync(Position item)
+        public async Task<bool> AddAsync(Position item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _context.Position.AddAsync(item);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
-        public Task<bool> DeleteAsync(Position item)
+        public async Task<bool> DeleteAsync(Position item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Position.Remove(item);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public async Task<List<Position>> GetAllAsync()

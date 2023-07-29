@@ -22,9 +22,43 @@
         <StackPanel>
             <Label>Orders</Label>
 
+            <ScrollViewer>
+                <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1">
+                    <DataGrid x:Name="DgvOrders" SelectedItem="{Binding ViewModel.SelectedOrder}" HorizontalAlignment="Center" ItemsSource="{Binding ViewModel.Orders}" AutoGenerateColumns="False" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" IsReadOnly="True" SelectionChanged="DgvOrders_SelectionChanged" Height="400">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Padding" Value="7,2,7,2"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nr" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Name"  Binding="{Binding Customer.Name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ui:ClientAreaBorder>
+            </ScrollViewer>
 
-            <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" Height="Auto">
-                <DataGrid x:Name="DgvOrders" SelectedItem="{Binding ViewModel.SelectedOrder}" HorizontalAlignment="Center" ItemsSource="{Binding ViewModel.Orders}" AutoGenerateColumns="False" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" EnableColumnVirtualization="True" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" IsReadOnly="True" SelectionChanged="DgvOrders_SelectionChanged">
+
+
+
+
+        </StackPanel>
+
+        <StackPanel>
+            <Label>Positions</Label>
+
+
+            <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch">
+                <DataGrid SelectedItem="{Binding ViewModel.SelectedPosition}" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding ViewModel.OrderPositions}" AutoGenerateColumns="False" IsReadOnly="True" Height="400" SelectionChanged="DataGrid_SelectionChanged">
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Padding" Value="7,2,7,2"/>
@@ -39,24 +73,6 @@
                             </Setter>
                         </Style>
                     </DataGrid.CellStyle>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Nr" Binding="{Binding Id}" />
-                        <DataGridTextColumn Header="Name"  Binding="{Binding Customer.Name}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </ui:ClientAreaBorder>
-
-
-
-
-        </StackPanel>
-
-        <StackPanel>
-            <Label>Positions</Label>
-
-
-            <ui:ClientAreaBorder BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch">
-                <DataGrid HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding ViewModel.OrderPositions}" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Pos" Binding="{Binding Id}" />
                         <DataGridTextColumn Header="Artikelname"  Binding="{Binding Article.Name}"/>
@@ -90,24 +106,24 @@
         <DockPanel>
             <StackPanel>
                 <Label>Kunden</Label>
-                <ComboBox />
+                <ComboBox Name="CmbCustomers" ItemsSource="{Binding ViewModel.Customers}" DisplayMemberPath="Name" SelectedItem="{Binding ViewModel.SelectedCustomer}" SelectionChanged="CmbCustomers_SelectionChanged"/>
                 <DockPanel>
-                    <Button>Auftrag erstellen</Button>
-                    <Button>Auftrag löschen</Button>
+                    <Button Name="AddOrdCmd" Command="{Binding ViewModel.AddCommand}" IsEnabled="False">Auftrag erstellen</Button>
+                    <Button Name="DelOrdCmd" Command="{Binding ViewModel.DeleteCommand}" IsEnabled="False">Auftrag löschen</Button>
                 </DockPanel>
 
                 <StackPanel>
                     <Label>Artikelname</Label>
-                    <ComboBox />
+                    <ComboBox Name="CmbArticles" ItemsSource="{Binding ViewModel.ArtGrpArticles}" Text="{Binding Name}" SelectedItem="{Binding ViewModel.SelectedArticle}" SelectionChanged="CmbArticles_SelectionChanged"/>
                     <DockPanel>
                         <StackPanel>
                             <Label>Anzahl</Label>
-                            <TextBox>Anzahl</TextBox>
+                            <TextBox x:Name="TxtAnzahl" TextChanged="TxtAnzahl_TextChanged"/>
                         </StackPanel>
                         <StackPanel>
-                            <Button>Position hinzufügen</Button>
-                            <Button>Position löschen</Button>
-                            <Button>Rechnung erstellen</Button>
+                            <Button Name="AddPosCmd" Command="{Binding ViewModel.AddPosCommand}" IsEnabled="False">Position hinzufügen</Button>
+                            <Button Name="DelPosCmd" Command="{Binding ViewModel.DeletePosCommand}" IsEnabled="False">Position löschen</Button>
+                            <Button Name="CreateInvoiceCmd" Command="{Binding ViewModel.CreateInvCommand}" IsEnabled="False">Rechnung erstellen</Button>
                         </StackPanel>
                     </DockPanel>
 
@@ -118,8 +134,8 @@
 
                 </StackPanel>
             </StackPanel>
-            
-            
+
+
 
 
 

@@ -16,7 +16,7 @@ namespace WPF_Ui.Services.Data.EntityConfiguration
                 .HasOne(i => i.Order)
                 .WithOne(o => o.Invoice)
                 .HasForeignKey<Invoice>(i => i.OrderId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

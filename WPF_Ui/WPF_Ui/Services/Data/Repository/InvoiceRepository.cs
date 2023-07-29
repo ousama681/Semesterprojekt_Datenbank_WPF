@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WPF_Ui.Models;
 using WPF_Ui.Services.Data.Interfaces;
 
@@ -10,9 +11,26 @@ namespace WPF_Ui.Services.Data.Repository
 {
     public class InvoiceRepository : IInvoiceRepository
     {
-        public Task<bool> AddAsync(Invoice item)
+        private readonly DataContext _context;
+
+        public InvoiceRepository(DataContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public async Task<bool> AddAsync(Invoice item)
+        {
+            try
+            {
+                await _context.Invoice.AddAsync(item);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
         }
 
         public Task<bool> DeleteAsync(Invoice item)

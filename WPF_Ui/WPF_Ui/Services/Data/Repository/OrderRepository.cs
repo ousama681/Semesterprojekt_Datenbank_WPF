@@ -19,14 +19,34 @@ namespace WPF_Ui.Services.Data.Repository
             _context = context;
         }
 
-        public Task<bool> AddAsync(Order item)
+        public async Task<bool> AddAsync(Order item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _context.Order.AddAsync(item);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
-        public Task<bool> DeleteAsync(Order item)
+        public async Task<bool> DeleteAsync(Order item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Order.Remove(item);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public async Task<List<Order>> GetAllAsync()
@@ -45,9 +65,21 @@ namespace WPF_Ui.Services.Data.Repository
             }
         }
 
-        public Task<Order> GetAsync(Order item)
+        public async Task<Order> GetAsync(Order item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _context.Order
+                    .Where(o => o.Id == item.Id)
+                    .Include(o => o.Positions)
+                    .Include(o => o.Invoice)
+                    .SingleAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new Order();
+            }
         }
 
         public Task<List<string>> GetFilteredAsync(List<string> item)
@@ -55,9 +87,18 @@ namespace WPF_Ui.Services.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Order item)
+        public async Task UpdateAsync(Order item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Order.Update(item);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
     }
 }

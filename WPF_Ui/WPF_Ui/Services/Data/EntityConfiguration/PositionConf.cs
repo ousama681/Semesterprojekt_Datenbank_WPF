@@ -11,6 +11,7 @@ namespace WPF_Ui.Services.Data.EntityConfiguration
             modelBuilder.Entity<Position>().Property(p => p.ArticleId).IsRequired();
             modelBuilder.Entity<Position>().Property(p => p.Quantity).IsRequired();
             modelBuilder.Entity<Position>().Property(p => p.PriceNetto).IsRequired();
+            modelBuilder.Entity<Position>().Property(p => p.OrderId).IsRequired();
 
             modelBuilder.Entity<Position>()
                 .HasOne(p => p.Order)
