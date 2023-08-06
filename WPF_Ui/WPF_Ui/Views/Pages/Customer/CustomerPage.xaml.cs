@@ -20,10 +20,5 @@ namespace WPF_Ui.Views.Pages.Customer
             DataContext = this;
 
         }
-
-        private void DgvCustomer_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

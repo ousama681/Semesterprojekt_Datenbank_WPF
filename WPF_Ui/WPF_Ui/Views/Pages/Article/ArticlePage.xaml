@@ -10,7 +10,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ArticlePage"
-      d:DataContext="{d:DesignInstance pages:ArticlePage, IsDesignTimeCreatable=False}">
+      d:DataContext="{d:DesignInstance local:ArticlePage, IsDesignTimeCreatable=False}">
     <ui:UiPage.Resources>
         <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
     </ui:UiPage.Resources>

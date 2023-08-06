@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,19 +34,65 @@ namespace WPF_Ui.Services.Data.Repository
             }
         }
 
-        public Task<bool> DeleteAsync(Invoice item)
+        public async Task<bool> DeleteAsync(Invoice item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (item != null && _context != null)
+                {
+                    var result = await _context.Invoice.FirstOrDefaultAsync(c => c.Id == item.Id);
+                    if (result != null)
+                    {
+                        _context.Invoice.Remove(result);
+                        await _context.SaveChangesAsync();
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
-        public Task<List<Invoice>> GetAllAsync()
+        public async Task<List<Invoice>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (_context != null)
+                {
+                    var result = await _context.Invoice.Include(c => c.Customer).ThenInclude(c => c.Town).Include(c => c.Order).ToListAsync();
+                    await _context.SaveChangesAsync();
+                    return result;
+                }
+                return new List<Invoice>();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<Invoice>();
+            }
         }
 
-        public Task<Invoice> GetAsync(Invoice item)
+        public async Task<Invoice> GetAsync(Invoice item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (item != null && _context != null)
+                {
+                    var result = await _context.Invoice.FirstOrDefaultAsync(c => c.Id == item.Id);
+                    if (result != null)
+                        return result;
+                }
+                return new Invoice();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new Invoice();
+            }
         }
 
         public Task<List<string>> GetFilteredAsync(List<string> item)
@@ -53,9 +100,20 @@ namespace WPF_Ui.Services.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Invoice item)
+        public async Task UpdateAsync(Invoice item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (item != null && _context != null)
+                {
+                    var result = _context.Invoice.Update(item);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
