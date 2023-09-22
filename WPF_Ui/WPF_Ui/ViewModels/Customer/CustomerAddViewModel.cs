@@ -1,5 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Runtime.InteropServices;
+using System.Security;
+using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using Wpf.Ui.Common.Interfaces;
@@ -12,27 +16,32 @@ namespace WPF_Ui.ViewModels.Customer
 {
     public partial class CustomerAddViewModel : ObservableObject, INavigationAware
     {
+        private static readonly Regex emailRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+        private static readonly Regex websiteRegex = new Regex(@"^(https?://)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(/[\w/.?=%&-]*)?$");
+        private static readonly Regex customerNrRegex = new Regex(@"^CU\d{5}$");
+        private static readonly Regex pwRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$");
         private bool _isInitialized = false;
         public ICommand AddCommand { get; set; }
         public ICommand BackCommand { get; set; }
         private readonly ICustomerRepository _customerRepository;
         private readonly ITownRepository _townRepository;
         MainWindow mainWindow;
-
         private int _customerNumber;
         public int CustomerNumber
         {
             get { return _customerNumber; }
-            set { SetProperty(ref _customerNumber, value); }
+            set
+            {
+                if (customerNrRegex.IsMatch(value.ToString()))
+                    SetProperty(ref _customerNumber, value);
+            }
         }
-
         private string _customerName;
         public string CustomerName
         {
             get { return _customerName; }
             set { SetProperty(ref _customerName, value); }
         }
-
         private string _street;
         public string Street
         {
@@ -47,25 +56,53 @@ namespace WPF_Ui.ViewModels.Customer
             set { SetProperty(ref _zipCode, value); }
         }
 
-        private string _email;
+        private string _email = string.Empty;
         public string Email
         {
             get { return _email; }
-            set { SetProperty(ref _email, value); }
+            set
+            {
+                if (emailRegex.IsMatch(value))
+                    SetProperty(ref _email, value);
+                else
+                {
+                    SetProperty(ref _email, value);
+                    if (_email != string.Empty)
+                    {                       
+                        MessageBox.Show("Email überprüfen");
+                    }
+                }
+            }
         }
 
-        private string _website;
+        private string _website = string.Empty;
         public string Website
         {
             get { return _website; }
-            set { SetProperty(ref _website, value); }
+            set
+            {
+                if (websiteRegex.IsMatch(value))
+                    SetProperty(ref _website, value);
+                else
+                {
+                    SetProperty(ref _website, value);
+                    if (_website != string.Empty)
+                    {
+                        MessageBox.Show("Link überprüfen");
+                    }
+                }
+            }
         }
 
-        private string _password;
+        private string _password = string.Empty;
         public string Password
         {
             get { return _password; }
-            set { SetProperty(ref _password, value); }
+            set
+            {
+                if (pwRegex.IsMatch(value))
+                    SetProperty(ref _password, value);
+            }
         }
 
         private string _city;
@@ -119,7 +156,6 @@ namespace WPF_Ui.ViewModels.Customer
 
         }
 
-
         [RelayCommand]
         private async void OnAddClick()
         {
@@ -131,7 +167,7 @@ namespace WPF_Ui.ViewModels.Customer
             };
             var town = await _townRepository.GetAsync(newTown);
 
-            if(town.Id != 0)
+            if (town.Id != 0)
             {
                 Models.Customer newCustomer = new Models.Customer
                 {
@@ -150,12 +186,12 @@ namespace WPF_Ui.ViewModels.Customer
             else
             {
                 MessageBox.Show("Check address details");
-            }           
+            }
         }
 
         [RelayCommand]
         private void OnBackClick()
-        {         
+        {
             mainWindow?.RootNavigation.Navigate(typeof(CustomerPage));
         }
     }

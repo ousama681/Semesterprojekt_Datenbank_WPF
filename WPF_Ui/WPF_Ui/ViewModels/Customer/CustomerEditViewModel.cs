@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using Wpf.Ui.Common.Interfaces;
@@ -12,6 +13,11 @@ namespace WPF_Ui.ViewModels.Customer
 {
     public partial class CustomerEditViewModel : ObservableObject, INavigationAware
     {
+        private static readonly Regex emailRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+        private static readonly Regex websiteRegex = new Regex(@"^(https?://)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(/[\w/.?=%&-]*)?$");
+        private static readonly Regex customerNrRegex = new Regex(@"^CU\d{5}$");
+        private static readonly Regex pwRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$");
+
         private bool _isInitialized = false;
         public ICommand SaveCommand { get; set; }
         public ICommand BackCommand { get; set; }
@@ -48,25 +54,53 @@ namespace WPF_Ui.ViewModels.Customer
             set { SetProperty(ref _zipCode, value); }
         }
 
-        private string _email;
+        private string _email = string.Empty;
         public string Email
         {
             get { return _email; }
-            set { SetProperty(ref _email, value); }
+            set
+            {
+                if (emailRegex.IsMatch(value))
+                    SetProperty(ref _email, value);
+                else
+                {
+                    SetProperty(ref _email, value);
+                    if (_email != string.Empty)
+                    {
+                        MessageBox.Show("Email überprüfen");
+                    }
+                }
+            }
         }
 
-        private string _website;
+        private string _website = string.Empty;
         public string Website
         {
             get { return _website; }
-            set { SetProperty(ref _website, value); }
+            set
+            {
+                if (websiteRegex.IsMatch(value))
+                    SetProperty(ref _website, value);
+                else
+                {
+                    SetProperty(ref _website, value);
+                    if (_website != string.Empty)
+                    {
+                        MessageBox.Show("Link überprüfen");
+                    }
+                }
+            }
         }
 
-        private string _password;
+        private string _password = string.Empty;
         public string Password
         {
             get { return _password; }
-            set { SetProperty(ref _password, value); }
+            set
+            {
+                if (pwRegex.IsMatch(value))
+                    SetProperty(ref _password, value);
+            }
         }
 
         private string _city;
